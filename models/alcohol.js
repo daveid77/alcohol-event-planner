@@ -1,18 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
-  var Alcohols = sequelize.define("Alcohol", {
+  var Alcohol = sequelize.define("Alcohol", {
     type : DataTypes.STRING,
     name : DataTypes.TEXT,
     image : DataTypes.TEXT,
      },  {
       timestamp : false,
       createdAt: false,
-      updatedAt:false,
-     });
+      updatedAt: false,
+    });
 
-   Alcohols.associate = function(models) {
-    Alcohols.belongsToMany(models.Occasions, 
-        {through : models.OccasionsAlcohols} 
+
+   Alcohol.associate = function(models) {
+    Alcohol.belongsToMany(models.Occasion, {
+      through : {
+        model: models.OccasionAlcohol
+      } 
      });
-     return Alcohols;
   };
+  return Alcohol;
+};
 

@@ -1,26 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
-  var Occasions = sequelize.define("Occasion", {
+  var Occasion = sequelize.define("Occasion", {
     event : DataTypes.STRING,
-    userid : DataTypes.INTEGER,
      },  {
       timestamp : false,
       createdAt: false,
-      updatedAt:false,
+      updatedAt: false,
      });
 
-   Occasions.associate = function(models) {
+   Occasion.associate = function(models) {
     // We're saying that a Post should belong to an Author
     // A Post can't be created without an Author due to the foreign key constraint
-    Occasions.belongsTo(models.User, {
+    Occasion.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
+    Occasion.belongsToMany(models.Alcohol, {
+      through : {
+        model: models.OccasionAlcohol
+       }
+  });   
   };
-
-  Occasions.associate = function(models) {
-      Occasions.belongsToMany(models.Alcohols, 
-        {through : models.OccasionsAlcohols} 
-  });
   return Occasion;
 };

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Events = sequelize.define("Events", {
+  var Event = sequelize.define("Event", {
     type : DataTypes.STRING,
      },  {
       timestamp : false,
@@ -7,6 +7,6 @@ module.exports = function(sequelize, DataTypes) {
       updatedAt:false,
      });
 
-  return Events;
+  return Event;
   };
 
