@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var OccasionsAlcohol = sequelize.define("occasions_alcohols", {});
+  var OccasionsAlcohols = sequelize.define("Occasions_Alcohols", {});
 
-  return  OccasionsAlcohol;
+  return  OccasionsAlcohols;
 };

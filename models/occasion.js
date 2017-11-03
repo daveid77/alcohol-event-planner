@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Occasions = sequelize.define("occasion", {
+  var Occasions = sequelize.define("Occasion", {
     event : DataTypes.STRING,
     userid : DataTypes.INTEGER,
      },  {
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Occasions.associate = function(models) {
       Occasions.belongsToMany(models.Alcohols, 
-        {through : models.OccasionsAlcohol} 
+        {through : models.OccasionsAlcohols} 
   });
   return Occasion;
 };

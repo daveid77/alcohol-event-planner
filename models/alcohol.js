@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Alcohols = sequelize.define("alcohol", {
+  var Alcohols = sequelize.define("Alcohol", {
     type : DataTypes.STRING,
     name : DataTypes.TEXT,
     image : DataTypes.TEXT,
