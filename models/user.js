@@ -3,5 +3,12 @@ module.exports = function(sequelize, DataTypes) {
     username : DataTypes.STRING,
     password: DataTypes.STRING,
      });
-  return User;
+
+    User.associate = function(models) {
+      User.hasMany(models.Occasion, {
+      onDelete: "cascade"
+    });
   };
+
+  return User;
+};
