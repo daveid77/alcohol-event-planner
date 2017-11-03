@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Alcohol = sequelize.define("Alcohol", {
+  var Alcohols = sequelize.define("alcohol", {
     type : DataTypes.STRING,
     name : DataTypes.TEXT,
     image : DataTypes.TEXT,
@@ -9,15 +9,10 @@ module.exports = function(sequelize, DataTypes) {
       updatedAt:false,
      });
 
-  Alcohol.associate = function(models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
-    Alcohol.hasMany(models.Events, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
-  return Alcohol;
+   Alcohols.associate = function(models) {
+    Alcohols.belongsToMany(models.Occasions, 
+        {through : models.OccasionsAlcohols} 
+     });
+     return Alcohols;
   };
 
