@@ -1,0 +1,40 @@
+body {
+  background: #58d0e8;
+}
+.container div div {
+  text-align: center;
+}
+h1 {
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+img { 
+  width: 260px; height: auto;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  padding: 10px;
+  margin: 10px;
+  background: #e2a53b;
+  border-radius: 20px;
+}
+li h3 {
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: red;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
