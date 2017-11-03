@@ -1,0 +1,26 @@
+{
+  "name": "alcohol-event-planner",
+  "version": "1.0.0",
+  "description": "A party planner app which assists users in selecting appropriate alcohol choices for the particular event types.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbmarshall/alcohol-event-planner.git"
+  },
+  "author": "Josh Siverson, Mike Murphy, David Morse, Yolisa Bam, Brandon Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dbmarshall/alcohol-event-planner/issues"
+  },
+  "homepage": "https://github.com/dbmarshall/alcohol-event-planner#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.22.1"
+  }
+}
