@@ -24,6 +24,7 @@ module.exports = function(app) {
   app.post('/api/alcohol', function(req, res) {
     db.Alcohol.create(req.body).then(function(dbAlcohol) {
       res.send(dbAlcohol);
+      // res.redirect()
     });
   });
 
