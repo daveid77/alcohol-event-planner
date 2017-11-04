@@ -1,77 +1,40 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
+var db = require('../models');
 
-// Dependencies
-// =============================================================
-
-// Requiring our models
-var db = require("../models");
-
-// Routes
-// =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the posts
-  app.get("/api/posts", function(req, res) {
-    var query = {};
-    if (req.query.author_id) {
-      query.AuthorId = req.query.author_id;
-    }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Post.findAll({
-      where: query,
-      include: [db.Author]
-    }).then(function(dbPost) {
-      res.json(dbPost);
+// ROUTES NEEDED: 
+// from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
+
+  app.get('/api/event', function(req, res) {
+    db.Event.findAll().then(function(dbEvent) {
+      res.send(dbEvent);
     });
   });
 
-  // Get rotue for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Post.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Author]
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
+  app.get('/api/event/:id', function(req, res) {
+    db.Event.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbEvent) {
+      res.send(dbEvent);
     });
   });
 
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
-        res.json(dbPost);
-      });
+  app.post('/api/event', function(req, res) {
+    db.Event.create(req.body).then(function(dbEvent) {
+      res.send(dbEvent);
+    });
   });
+
+  app.delete('/api/event/:id', function(req, res) {
+    db.Event.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbEvent) {
+      res.send(dbEvent);
+    });
+  });
+
 };
