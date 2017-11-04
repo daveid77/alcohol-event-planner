@@ -27,3 +27,7 @@ INSERT INTO Alcohol (type,name,image) VALUES ("Spirits","Smirnoff Vodka
 ","https://dx5vpyka4lqst.cloudfront.net/products/38505/images/thumb.png");
 INSERT INTO Alcohol (type,name,image) VALUES ("Wine","French Cross Dry White Bag in Box
 ","https://dx5vpyka4lqst.cloudfront.net/products/589051/images/thumb.png");
+
+-- THIS IS A TEST USER AND CAN BE DELETED WHEN USER ROUTES SET
+INSERT INTO Users (username,password) VALUES ("Jane","1234");
+INSERT INTO Users (username,password) VALUES ("John","1234");

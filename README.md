@@ -63,10 +63,10 @@ Update mysql references in new `config.json` file to match your local environmen
 ## Authors
 
 * **Josh Siverson** ([siverson90.github.io](https://siverson90.github.io))
-* **Mike Murphy** ([Brainstorm-Chaser.github.io](https://Brainstorm-Chaser.github.io))
+* **Mike Murphy** ([github.com/Brainstorm-Chaser](https://github.com/Brainstorm-Chaser))
 * **David Morse** ([dbmarshall.github.io](https://dbmarshall.github.io))
 * **Yolisa Bam** ([yolisabam.github.io](https://yolisabam.github.io))
-* **Brandon Lee** ([blee2322.github.io](https://blee2322.github.io))
+* **Brandon Lee** ([github.com/blee2322](https://github.com/blee2322))
 
 ## License
 

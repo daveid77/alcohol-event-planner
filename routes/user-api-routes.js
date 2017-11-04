@@ -20,12 +20,8 @@ module.exports = function(app) {
 // User | “/user/:id/edit” | GET | Update | Returns form for editing user
 // User | “/user/:id/” | PUT | Update | Updates DB
 
-  app.get('user/:id', function(req, res) {
-    db.User.findAll({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbAuthor) {
+  app.get('/user/', function(req, res) {
+    db.User.findAll().then(function(dbUser) {
       res.send(dbUser);
     });
   });
@@ -40,7 +36,7 @@ module.exports = function(app) {
         username: req.body.username,
         password: req.body.password
       }
-    }).then(function(dbAuthor) {
+    }).then(function(dbUser) {
       res.send(dbUser);
     });
   });
@@ -54,7 +50,7 @@ module.exports = function(app) {
         username: req.body.username,
         password: req.body.password
       }
-    }).then(function(dbAuthor) {
+    }).then(function(dbUser) {
       res.send(dbUser);
     });
   });
@@ -64,7 +60,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(dbAuthor) {
+    }).then(function(dbUser) {
       res.send(dbUser);
     });
   });
