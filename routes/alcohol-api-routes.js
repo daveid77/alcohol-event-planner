@@ -1,44 +1,39 @@
-var db = require("../models");
+var db = require('../models');
 
 module.exports = function(app) {
-  app.get("/api/authors", function(req, res) {
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
-    db.Author.findAll({
-      include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+
+// ROUTES NEEDED: 
+// from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
+
+  app.get('/api/alcohol', function(req, res) {
+    db.Alcohol.findAll().then(function(dbAlcohol) {
+      res.send(dbAlcohol);
     });
   });
 
-  app.get("/api/authors/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
-    db.Author.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
-
-  app.post("/api/authors", function(req, res) {
-    db.Author.create(req.body).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
-
-  app.delete("/api/authors/:id", function(req, res) {
-    db.Author.destroy({
+  app.get('/api/alcohol/:id', function(req, res) {
+    db.Alcohol.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+    }).then(function(dbAlcohol) {
+      res.send(dbAlcohol);
+    });
+  });
+
+  app.post('/api/alcohol', function(req, res) {
+    db.Alcohol.create(req.body).then(function(dbAlcohol) {
+      res.send(dbAlcohol);
+    });
+  });
+
+  app.delete('/api/alcohol/:id', function(req, res) {
+    db.Alcohol.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbAlcohol) {
+      res.send(dbAlcohol);
     });
   });
 

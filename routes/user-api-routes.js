@@ -14,34 +14,24 @@ module.exports = function(app) {
 
 // ROUTES NEEDED: 
 // from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
-// User | “user/:id” | GET | Show | Display single user
-// User | “/user/new” | GET | New | Return form for creating new user
-// User | “/user/” | POST | Create | Creates new user
-// User | “/user/:id/edit” | GET | Update | Returns form for editing user
-// User | “/user/:id/” | PUT | Update | Updates DB
 
-  app.get('/user/', function(req, res) {
+  app.get('/api/user', function(req, res) {
     db.User.findAll().then(function(dbUser) {
       res.send(dbUser);
     });
   });
 
-  app.get('/user/new', function(req, res) {
+  app.get('/api/user/new', function(req, res) {
     // for handlebars
   });
 
-  app.post('/user/', function(req, res) {
-    db.User.create({
-      where: {
-        username: req.body.username,
-        password: req.body.password
-      }
-    }).then(function(dbUser) {
-      res.send(dbUser);
+  app.post('/api/user', function(req, res) {
+    db.Post.create(req.body).then(function(dbPost) {
+      res.send(dbPost);
     });
   });
 
-  app.put('/user/:id/edit', function(req, res) {
+  app.put('/api/user/:id/edit', function(req, res) {
     db.User.create({
       where: {
         id: req.params.id
@@ -55,7 +45,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/user/:id/', function(req, res) {
+  app.get('/api/user/:id', function(req, res) {
     db.User.findOne({
       where: {
         id: req.params.id
@@ -64,6 +54,5 @@ module.exports = function(app) {
       res.send(dbUser);
     });
   });
-  
   
 };
