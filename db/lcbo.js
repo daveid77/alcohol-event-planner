@@ -1,5 +1,6 @@
-var mysql = require("mysql");
+// var mysql = require("mysql");
 var request = require("request");
+var mysql = require("mysql");
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -20,59 +21,35 @@ connection.connect(function(err) {
 
     function getLcboData() {
 
-    console.log("button works");
+    var qUrl = "https://lcboapi.com/products?per_page=100&access_key=MDpjOTBmZTUyMC1jMWNiLTExZTctYjg4MC02YmZmM2Y5NTY3NDE6VkxhMzdqNHcweFNhRkJrb3cyYXFpZVFxYW5JaklkUWZ4TDV5";
 
-    var url = "http://lcboapi.com/products?page=2&access_key=";
 
-    var api_key = "MDplMTI2NmVjYS1iZmYyLTExZTctOGU0NC04MzNjNzk5NzRlMzk6SnRYZWRMTzRENnh4SlJHbjVPWGhWZ1RNU1JIQUNlVUY2bVlS"
-    
-    var queryURL = url + api_key;
-
-    request(queryURL, function(error, response,body){
-
-      if (!error && response.statusCode === 200){
-
+    request.get(qUrl, function(error, response,body){
+      
+        if (error) throw error;
         var objBody = JSON.parse(body);
+        var data = objBody.result;
 
-        connection.log(objBody);
-      }
-    });
-  }
+       var arrayOfAlcohols = [];
+        
+        for(var i = 0; i < data.length; i++) {
+         
+         var query = connection.query(
+          "INSERT INTO Alcohol SET ?",
+          {
+            type: data[i].primary_category,
+            name: data[i].name,
+            image: data[i].image_thumb_url,
+            tag: data[i].tags
+          },function(err,res) {
+            if (err) throw err;
+            else  {
+              console.log(res.affectedRows + " product inserted!\n");
+            };
+          })
+        }
+      });
+}  
 
-  getLcboData();
-
+getLcboData();
     
-    
-
-    // console.log(queryURL);
-
-
-    //   var lcboObj = response.result;
-
-    //   var arrayOfLcboResults = [];
-
-    //   for (var i = 0; i < lcboObj.length; i++) {
-    //     var obj = {
-    //       "type":lcboObj[i].primary_category,
-    //       "name":lcboObj[i].name,
-    //       "image":lcboObj[i].image_thumb_url
-    //     };
-    //     arrayOfLcboResults.push(obj);
-    //   }
-    //   // postLcboData(arrayOfLcboResults);
-    // };// end of AJAX
-     // end of on #lcbo-dat on click listener
-
-  // function postLcboData(lcboData){
-  //   console.log("in function");
-  //   console.log(lcboData);
-
-  //   var lcboObj = {"data": lcboData}
-
-  //   $.ajax("/api/lcbo", {
-  //     type: "POST",
-  //     data: lcboData
-  //   }).then(function(){
-  //     console.log("response hit");
-  //   });
-  // }
