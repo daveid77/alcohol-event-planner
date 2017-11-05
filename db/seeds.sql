@@ -40,17 +40,17 @@ INSERT INTO Users (username,password) VALUES ("John","1234");
 
 -- Alcohol Table Key:  1 - Beer; Wine - 2; Spirits - 3          
 
-INSERT INTO EventFilter (event,alcohol) VALUES ("1","1");
-INSERT INTO EventFilter (event,alcohol) VALUES ("1","2");
-INSERT INTO EventFilter (event,alcohol) VALUES ("2","1");
-INSERT INTO EventFilter (event,alcohol) VALUES ("2","2");
-INSERT INTO EventFilter (event,alcohol) VALUES ("3","2");
-INSERT INTO EventFilter (event,alcohol) VALUES ("3","3");
-INSERT INTO EventFilter (event,alcohol) VALUES ("4","1");
-INSERT INTO EventFilter (event,alcohol) VALUES ("5","1");
-INSERT INTO EventFilter (event,alcohol) VALUES ("5","2");
-INSERT INTO EventFilter (event,alcohol) VALUES ("5","3");
-INSERT INTO EventFilter (event,alcohol) VALUES ("6","1");
-INSERT INTO EventFilter (event,alcohol) VALUES ("6","2");
-INSERT INTO EventFilter (event,alcohol) VALUES ("6","3");
-INSERT INTO EventFilter (event,alcohol) VALUES ("7","3");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Birthday Party","Beer");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Birthday Party","Wine");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Dinner Party","Beer");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Dinner Party","Wine");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Company Party","Wine");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Company Party","Spirits");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Football Party","Beer");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Beer");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Wine");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Spirits");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Beer");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Wine");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Spirits");
+INSERT INTO EventFilter (event,alcohol) VALUES ("Cocktail Party","Spirits");
