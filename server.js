@@ -3,6 +3,18 @@ var bodyParser = require("body-parser");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
 
+<<<<<<< HEAD
+// Load modules.
+var OAuthStrategy = require('passport-google-oauth1');
+var OAuth2Strategy = require('passport-google-oauth20')
+
+// Exports.
+exports.Strategy =
+exports.OAuthStrategy = OAuthStrategy;
+exports.OAuth2Strategy = OAuth2Strategy;
+
+=======
+>>>>>>> 54996314604b1c8d04b65a9ee0695b0001f81e75
 
 // ================
 var app = express();
@@ -16,6 +28,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Static directory
 app.use(express.static("public"));
