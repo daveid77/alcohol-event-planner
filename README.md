@@ -16,7 +16,7 @@
     cp config-BKUP.json config.json
     ```
 
-Update mysql references in new `config.json` file to match your local environment.
+    Update mysql references in new `config.json` file to match your local environment.
 
 
 3. Create database in MySQL: 
@@ -44,6 +44,7 @@ Update mysql references in new `config.json` file to match your local environmen
     exit;
     ```
 
+<<<<<<< HEAD
 6. Populate Alcohol table with data in MySQL: 
 
     ```
@@ -52,6 +53,15 @@ Update mysql references in new `config.json` file to match your local environmen
     node lcbo.js
     exit;
     ```
+=======
+6. Populate Alcohol table with data from LCBO API: 
+
+    `cd /alcohol-event-planner/db/`
+
+    Update mysql references in `lcbo.js` file to match your local environment.
+
+    Run `node lcbo.js`
+>>>>>>> 9f8c19b0310d7b857192285f2095663095e60e4e
 
 ## Available Node Commands and URLs
 
