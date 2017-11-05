@@ -39,13 +39,12 @@ function getLcboData() {
   };
 
   var query = 'INSERT INTO Alcohol (type, name, image, tag) VALUES ?';
-  connection.query(query, [arrayOfAlcohols], 
-    function(err, res) {
-    if (err) throw err;
-      console.log(res.affectedRows + " products inserted!\n");
-      connection.end();
-  });
-
+    connection.query(query, [arrayOfAlcohols], 
+      function(err, res) {
+      if (err) throw err;
+        console.log(res.affectedRows + " products inserted!\n");
+        connection.end();
+    });
   });
 
 }  
