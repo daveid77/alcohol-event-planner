@@ -1,15 +1,11 @@
-var mysql = require("mysql");
 var request = require("request");
+var mysql = require("mysql2");
 
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
-
-  // Your username
   user: "root",
-
-  // Your password
-  password: "Snowboarder1$",
+  password: "root",
   database: "alcohol_db"
 });
 
@@ -18,61 +14,41 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId + "\n");
 });
 
-    function getLcboData() {
+function getLcboData() {
 
-    console.log("button works");
+  var qUrl = "https://lcboapi.com/products?per_page=100&access_key=MDpjOTBmZTUyMC1jMWNiLTExZTctYjg4MC02YmZmM2Y5NTY3NDE6VkxhMzdqNHcweFNhRkJrb3cyYXFpZVFxYW5JaklkUWZ4TDV5";
 
-    var url = "http://lcboapi.com/products?page=2&access_key=";
+  request.get(qUrl, function(error, response,body) {
 
-    var api_key = "MDplMTI2NmVjYS1iZmYyLTExZTctOGU0NC04MzNjNzk5NzRlMzk6SnRYZWRMTzRENnh4SlJHbjVPWGhWZ1RNU1JIQUNlVUY2bVlS"
-    
-    var queryURL = url + api_key;
+  if (error) throw error;
+  
+  var objBody = JSON.parse(body);
+  var data = objBody.result;
 
-    request(queryURL, function(error, response,body){
+  var arrayOfAlcohols = [];
+  
+  for(var i = 0; i < data.length; i++) {
+    arrayOfAlcohols.push(
+      [
+        data[i].primary_category,
+        data[i].name,
+        data[i].image_thumb_url,
+        data[i].tags
+      ]
+    );
+  };
 
-      if (!error && response.statusCode === 200){
+  var query = 'INSERT INTO Alcohol (type, name, image, tag) VALUES ?';
+  connection.query(query, [arrayOfAlcohols], 
+    function(err, res) {
+    if (err) throw err;
+      console.log(res.affectedRows + " products inserted!\n");
+      connection.end();
+  });
 
-        var objBody = JSON.parse(body);
+  });
 
-        connection.log(objBody);
-      }
-    });
-  }
+}  
 
-  getLcboData();
+getLcboData();
 
-    
-    
-
-    // console.log(queryURL);
-
-
-    //   var lcboObj = response.result;
-
-    //   var arrayOfLcboResults = [];
-
-    //   for (var i = 0; i < lcboObj.length; i++) {
-    //     var obj = {
-    //       "type":lcboObj[i].primary_category,
-    //       "name":lcboObj[i].name,
-    //       "image":lcboObj[i].image_thumb_url
-    //     };
-    //     arrayOfLcboResults.push(obj);
-    //   }
-    //   // postLcboData(arrayOfLcboResults);
-    // };// end of AJAX
-     // end of on #lcbo-dat on click listener
-
-  // function postLcboData(lcboData){
-  //   console.log("in function");
-  //   console.log(lcboData);
-
-  //   var lcboObj = {"data": lcboData}
-
-  //   $.ajax("/api/lcbo", {
-  //     type: "POST",
-  //     data: lcboData
-  //   }).then(function(){
-  //     console.log("response hit");
-  //   });
-  // }
