@@ -3,8 +3,7 @@ var bodyParser = require("body-parser");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+
 // ================
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -21,6 +20,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Static directory
 app.use(express.static("public"));
 
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
