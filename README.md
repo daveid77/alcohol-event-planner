@@ -44,6 +44,14 @@ Update mysql references in new `config.json` file to match your local environmen
     exit;
     ```
 
+6. Populate Alcohol table with data in MySQL: 
+
+    ```
+    cd /alcohol-event-planner/db/
+    update mysql username/password
+    node lcbo.js
+    exit;
+    ```
 
 ## Available Node Commands and URLs
 
