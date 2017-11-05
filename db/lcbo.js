@@ -1,6 +1,6 @@
 // var mysql = require("mysql");
 var request = require("request");
-var mysql = require("mysql");
+var mysql = require("mysql2");
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -25,7 +25,7 @@ connection.connect(function(err) {
 
 
     request.get(qUrl, function(error, response,body){
-      
+
         if (error) throw error;
         var objBody = JSON.parse(body);
         var data = objBody.result;
