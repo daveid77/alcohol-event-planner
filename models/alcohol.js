@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     type : DataTypes.STRING,
     name : DataTypes.TEXT,
     image : DataTypes.TEXT,
+    tag : DataTypes.TEXT,
      },  {
       timestamp : false,
       createdAt: false,

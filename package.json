@@ -22,10 +22,14 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.4.2",
+<<<<<<< HEAD
     "passport": "^0.4.0",
     "passport-google-oauth": "^1.0.0",
     "passport-google-oauth1": "^1.0.0",
     "passport-google-oauth20": "^1.0.0",
+=======
+    "request": "^2.83.0",
+>>>>>>> 54996314604b1c8d04b65a9ee0695b0001f81e75
     "sequelize": "^4.22.1"
   }
 }
