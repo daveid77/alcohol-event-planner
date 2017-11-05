@@ -3,18 +3,13 @@ var bodyParser = require("body-parser");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
 
-<<<<<<< HEAD
 // Load modules.
-var OAuthStrategy = require('passport-google-oauth1');
-var OAuth2Strategy = require('passport-google-oauth20')
+// var OAuthStrategy = require('passport-google-oauth1');
+// var OAuth2Strategy = require('passport-google-oauth20')
 
 // Exports.
-exports.Strategy =
-exports.OAuthStrategy = OAuthStrategy;
-exports.OAuth2Strategy = OAuth2Strategy;
-
-=======
->>>>>>> 54996314604b1c8d04b65a9ee0695b0001f81e75
+// exports.OAuthStrategy = OAuthStrategy;
+// exports.OAuth2Strategy = OAuth2Strategy;
 
 // ================
 var app = express();
