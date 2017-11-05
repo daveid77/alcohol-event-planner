@@ -21,17 +21,18 @@ INSERT INTO Users (username,password) VALUES ("John","1234");
 
 -- Alcohol Table Key:  1 - Beer; Wine - 2; Spirits - 3          
 
-INSERT INTO EventFilter (event,alcohol) VALUES ("Birthday Party","Beer");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Birthday Party","Wine");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Dinner Party","Beer");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Dinner Party","Wine");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Company Party","Wine");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Company Party","Spirits");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Football Party","Beer");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Beer");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Wine");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Spirits");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Beer");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Wine");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Spirits");
-INSERT INTO EventFilter (event,alcohol) VALUES ("Cocktail Party","Spirits");
+-- commenting out the following inserts until fixed to match model, etc (david)
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Birthday Party","Beer");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Birthday Party","Wine");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Dinner Party","Beer");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Dinner Party","Wine");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Company Party","Wine");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Company Party","Spirits");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Football Party","Beer");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Beer");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Wine");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Holiday Party","Spirits");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Beer");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Wine");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Housewarming Party","Spirits");
+-- INSERT INTO EventFilter (event,alcohol) VALUES ("Cocktail Party","Spirits");
