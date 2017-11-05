@@ -19,18 +19,17 @@ $(function() {
     );
   });
 
-  $('.create-form').on('submit', function(event) {
+  $('#alchlists').on('submit', function(event) {
     event.preventDefault();
 
-    var newBurger = {
-      name: $('#bur').val().trim(),
-      devoured: 0
+    var newList = {
+      name: $('').val().trim(),
     };
 
     // Send POST request.
     $.ajax('/api/burgers', {
       type: 'POST',
-      data: newBurger
+      data: newList
     }).then(
       function() {
         // Reload page for updated list
