@@ -3,10 +3,10 @@ USE alcohol_db;
 INSERT INTO Events (type) VALUES ('Birthday Party');
 INSERT INTO Events (type) VALUES ('Dinner Party');
 INSERT INTO Events (type) VALUES ('Company Party');
-INSERT INTO Events (type) VALUES ('Wedding');
+INSERT INTO Events (type) VALUES ('Football Party');
 INSERT INTO Events (type) VALUES ('Holiday Party');
 INSERT INTO Events (type) VALUES ('Housewarming Party');
-INSERT INTO Events (type) VALUES ('Holiday Party');
+INSERT INTO Events (type) VALUES ('Cocktail Party');
 
 
 INSERT INTO Alcohol (type,name,image) VALUES ("Spirits","Forty Creek Barrel Select Whisky
@@ -31,3 +31,26 @@ INSERT INTO Alcohol (type,name,image) VALUES ("Wine","French Cross Dry White Bag
 -- THIS IS A TEST USER AND CAN BE DELETED WHEN USER ROUTES SET
 INSERT INTO Users (username,password) VALUES ("Jane","1234");
 INSERT INTO Users (username,password) VALUES ("John","1234");
+
+-- SEEDS FOR EVENT FILTER TABLE
+-- Event Table Key:    1 - Birthday Party; 2 - Dinner Party; 3 - Company Party; 
+--                     4 - Football Party; 5 - Holiday Party;
+--                     6 - Housewarming Party; 7 - Cocktail Party
+-- ________________________________________________________________________________________
+
+-- Alcohol Table Key:  1 - Beer; Wine - 2; Spirits - 3          
+
+INSERT INTO EventFilter (event,alcohol) VALUES ("1","1");
+INSERT INTO EventFilter (event,alcohol) VALUES ("1","2");
+INSERT INTO EventFilter (event,alcohol) VALUES ("2","1");
+INSERT INTO EventFilter (event,alcohol) VALUES ("2","2");
+INSERT INTO EventFilter (event,alcohol) VALUES ("3","2");
+INSERT INTO EventFilter (event,alcohol) VALUES ("3","3");
+INSERT INTO EventFilter (event,alcohol) VALUES ("4","1");
+INSERT INTO EventFilter (event,alcohol) VALUES ("5","1");
+INSERT INTO EventFilter (event,alcohol) VALUES ("5","2");
+INSERT INTO EventFilter (event,alcohol) VALUES ("5","3");
+INSERT INTO EventFilter (event,alcohol) VALUES ("6","1");
+INSERT INTO EventFilter (event,alcohol) VALUES ("6","2");
+INSERT INTO EventFilter (event,alcohol) VALUES ("6","3");
+INSERT INTO EventFilter (event,alcohol) VALUES ("7","3");
