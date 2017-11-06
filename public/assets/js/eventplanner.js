@@ -45,7 +45,7 @@ $(function() {
 
     $.ajax('/api/user/:id/occasion/', {
       type: 'POST',
-      data: alcoholIds
+      data: newOccasion
     }).then(
       function() {
         // Reload page for updated list

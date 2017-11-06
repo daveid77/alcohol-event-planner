@@ -1,11 +1,16 @@
+var Sequelize = require('sequelize');
+
 module.exports = function(sequelize, DataTypes) {
   var Occasion = sequelize.define("Occasion", {
-    event : DataTypes.STRING,
-     },  {
-      timestamp : false,
-      createdAt: false,
-      updatedAt: false,
-     });
+    eventlId: DataTypes.INTEGER,
+    alcoholId: DataTypes.INTEGER,
+    createdAt: {
+      type: Sequelize.DATE
+    },
+    updatedAt: {
+      type: Sequelize.DATE
+    }
+  });
 
    Occasion.associate = function(models) {
     // We're saying that a Post should belong to an Author
