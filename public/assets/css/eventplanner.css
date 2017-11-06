@@ -20,6 +20,7 @@ h3{
   font-weight: bold;
   font-size: 25px;
 }
+
 label {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
@@ -39,7 +40,7 @@ label {
   color: #042037;
 }
 .login-wrapper {
-  margin-top: 300px;
+  margin-top: 150px;
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   font-size: 30px;
@@ -57,10 +58,14 @@ label {
   font-size: 19px;
 }
 .sign-up-wrapper{
-  margin-top: 300px;
+  margin-top: 150px;
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   font-size: 30px;
+}
+
+.login-info-wrapper {
+  display: flex;
 }
 .navbar-header p {
   font-family: 'Oswald', sans-serif;
