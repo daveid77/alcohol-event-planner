@@ -26,8 +26,8 @@ module.exports = function(app) {
   });
 
 // alcohol page route
-  app.get("/user/:id/occasion/:occid", function(req, res) {
-    res.render("User_Selected_Alcohol")
+  app.get("/user/:id/events/:eventid/occasion/:occid", function(req, res) {
+    res.render("compiled_list")
   });
 
 };
