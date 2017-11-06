@@ -4,6 +4,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;*/
 }
+h1{
+ font-family: 'Oswald', sans-serif;
+ font-size: 30px; 
+ color: #042037;
+
+}
 h3{
  font-family: 'Oswald', sans-serif;
  font-size: 30px; 
@@ -28,6 +34,9 @@ label {
   margin: 15px 0;
   float: right;
   clear: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  color: #042037;
 }
 .login-wrapper {
   margin-top: 300px;
@@ -53,16 +62,14 @@ label {
   font-weight: bold;
   font-size: 30px;
 }
-#navbar{
-  font-family: 'Oswald', sans-serif;
-  font-size: 20px;
-  color: #042037;
-}
 .navbar-header p {
   font-family: 'Oswald', sans-serif;
   font-size: 38px;
   color: #042037;
-
+}
+.dropdown-toggle{
+  width: 100%;
+  margin-top: 200px;
 }
 .page-title {
   margin: 10px 0 30px;
