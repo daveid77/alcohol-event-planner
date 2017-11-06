@@ -7,6 +7,14 @@ module.exports = function(sequelize, DataTypes) {
       updatedAt:false,
      });
 
+  Event.associate = function(models) {
+
+    Event.belongsToMany(models.Alcohol, {
+      through: {
+        model: models.EventAlcohol
+      }
+    });
+  };
   return Event;
   };
 
