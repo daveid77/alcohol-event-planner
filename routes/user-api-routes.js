@@ -28,13 +28,13 @@ module.exports = function(app) {
   app.post('/api/user', function(req, res) {
     
     console.log(req.body);
-    // db.Post.create({
-      
-    // })
-    // console.log(req.body);
-    // .then(function(dbPost) {
-    //   res.send(dbPost);
-    // });
+    db.User.create({
+      "username": req.body.username,
+      "password": req.body.password
+    })
+    .then(function(dbPost) {
+      res.send(dbPost.dataValues.id);
+    });
   });
 
   app.put('/api/user/:id/edit', function(req, res) {
