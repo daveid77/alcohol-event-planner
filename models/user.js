@@ -2,8 +2,8 @@ var Sequelize = require('sequelize');
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    username : DataTypes.STRING,
-    password: DataTypes.STRING,
+    name : DataTypes.STRING,
+    googleID: DataTypes.STRING,
     createdAt: {
       type: Sequelize.DATE
     },

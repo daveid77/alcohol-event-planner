@@ -159,3 +159,8 @@ footer {
     min-height: 225px;
   }
 }
+
+#goog{
+  color:black;
+  /*border:1px bold black;*/
+}
