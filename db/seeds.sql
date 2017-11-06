@@ -9,8 +9,8 @@ INSERT INTO Events (type) VALUES ('Housewarming Party');
 INSERT INTO Events (type) VALUES ('Cocktail Party');
 
 -- THESE ARE TEST USERS AND CAN BE DELETED WHEN USER ROUTES SET
-INSERT INTO Users (useralcoholId,password) VALUES ("Jane","1234");
-INSERT INTO Users (useralcoholId,password) VALUES ("John","1234");
+INSERT INTO Users (username,password) VALUES ("Jane","1234");
+INSERT INTO Users (username,password) VALUES ("John","1234");
        
 -- Birthday Party
 INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Beer",1);

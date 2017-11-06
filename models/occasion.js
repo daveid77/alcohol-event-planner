@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 
 module.exports = function(sequelize, DataTypes) {
   var Occasion = sequelize.define("Occasion", {
-    eventlId: DataTypes.INTEGER,
+    eventId: DataTypes.INTEGER,
     alcoholId: DataTypes.INTEGER,
     createdAt: {
       type: Sequelize.DATE

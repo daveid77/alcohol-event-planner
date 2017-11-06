@@ -5,53 +5,58 @@ $(function() {
     $(this).toggleClass('selected');
     var text = $(this).attr('title') == 'Select this' ? 'Unselect this' : 'Select this';
     $(this).attr('title', text);
-    console.log($(this).data('alcoholid'));
+      // console.log($(this).data('alcoholid'));
+
+    if ($('.selected').length > 0) {
+      console.log('yes selected');
+      $('#submit-selections').removeClass('disabled').prop('disabled', false);
+    } else {
+      console.log('no selected');
+      $('#submit-selections').addClass('disabled').prop('disabled', true);
+    }
   });
+
 
   $('#submit-selections').on('click', function(event) {
 
-      console.log('#submit-selections clicked');
-
     var eventId = parseInt($('#event-name').data('eventid'));
-      console.log('eventId: ', eventId);
+      // console.log('eventId: ', eventId);
 
     var alcoholIds = [];
     $('.selected').each(function() {
       alcoholIds.push(parseInt($(this).data('alcoholid')));
     });
-      console.log('alcoholIds: ', alcoholIds);
+      // console.log('alcoholIds: ', alcoholIds);
 
     var newOccasion = [];
 
     for (var i = 0; i < alcoholIds.length; i++) {
       newOccasion.push(
-      [
-        eventId,
-        alcoholIds[i]
-      ]
-    );
-      // newOccasion.eventId = eventId;
-      // newOccasion.alcoholId = alcoholIds[i];
+        {
+          eventId: eventId,
+          alcoholId: alcoholIds[i]
+        }
+      );
     }
 
-    // var newOccasion = {
-    //   event: eventId,
-    //   alcohol: alcoholIds
-    // };
-      console.log('newOccasion: ', JSON.stringify(newOccasion));
+    // newOccasion = JSON.stringify(newOccasion);
 
-    // $.post('/api/user/:id/occasion/, userSelections)
-    //   .then(userSelections);
+      console.log('newOccasion: ', newOccasion);
+    
+    // Gets UserId from URL
+    var url = window.location.href;
+    var urlSplit = url.split('/');
+    var userId = urlSplit[4];
+    var postURL = '/api/user/' + userId + '/occasion/';
 
-    $.ajax('/api/user/:id/occasion/', {
-      type: 'POST',
-      data: newOccasion
-    }).then(
-      function() {
-        // Reload page for updated list
-        // location.reload();
-      }
-    );
+    $.post(postURL, newOccasion).then(function(returnData){
+        console.log('returnData: ', returnData);
+        console.log('JSON.stringify(returnData): ', JSON.stringify(returnData));
+      // newURL = '/api/user/' + userId + '/occasion/' + returnData.id;
+      //   console.log('newURL: ', newURL);
+      // window.location.href = newURL;
+      // location.reload();
+    });
 
   });
 
