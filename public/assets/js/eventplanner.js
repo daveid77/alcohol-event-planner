@@ -12,22 +12,47 @@ $(function() {
 
       console.log('#submit-selections clicked');
 
-    var userSelections = [];
-    $('.selected').each(function() {
-      userSelections.push(parseInt($(this).data('alcoholid')));
-    });
+    var eventId = parseInt($('#event-name').data('eventid'));
+      console.log('eventId: ', eventId);
 
-      console.log('userSelections: ', userSelections);
+    var alcoholIds = [];
+    $('.selected').each(function() {
+      alcoholIds.push(parseInt($(this).data('alcoholid')));
+    });
+      console.log('alcoholIds: ', alcoholIds);
+
+    var newOccasion = [];
+
+    for (var i = 0; i < alcoholIds.length; i++) {
+      newOccasion.push(
+      [
+        eventId,
+        alcoholIds[i]
+      ]
+    );
+      // newOccasion.eventId = eventId;
+      // newOccasion.alcoholId = alcoholIds[i];
+    }
+
+    // var newOccasion = {
+    //   event: eventId,
+    //   alcohol: alcoholIds
+    // };
+      console.log('newOccasion: ', JSON.stringify(newOccasion));
+
+    // $.post('/api/user/:id/occasion/, userSelections)
+    //   .then(userSelections);
 
     $.ajax('/api/user/:id/occasion/', {
       type: 'POST',
-      data: userSelections
+      data: alcoholIds
     }).then(
       function() {
         // Reload page for updated list
         // location.reload();
       }
     );
+
   });
 
 
