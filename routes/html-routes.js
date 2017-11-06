@@ -2,6 +2,10 @@
 // html-routes.js - this file offers a set of routes for sending users to the various html pages
 // *********************************************************************************
 
+// Dependencies
+// =============================================================
+var path = require("path");
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -17,8 +21,8 @@ module.exports = function(app) {
   });
 
   // occasion page route
-  app.get("/user/:id/events/:eventid/alcohol", function(req, res) {
-    res.render("event_alcohol_landing")
+  app.get("/user/:id/events/:eventid/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/event-alcohol-selection.html"));
   });
 
 // alcohol page route

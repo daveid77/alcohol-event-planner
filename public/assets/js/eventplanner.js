@@ -5,6 +5,29 @@ $(function() {
     $(this).toggleClass('selected');
     var text = $(this).attr('title') == 'Select this' ? 'Unselect this' : 'Select this';
     $(this).attr('title', text);
+    console.log($(this).data('alcoholid'));
+  });
+
+  $('#submit-selections').on('click', function(event) {
+
+      console.log('#submit-selections clicked');
+
+    var userSelections = [];
+    $('.selected').each(function() {
+      userSelections.push(parseInt($(this).data('alcoholid')));
+    });
+
+      console.log('userSelections: ', userSelections);
+
+    $.ajax('/api/user/:id/occasion/', {
+      type: 'POST',
+      data: userSelections
+    }).then(
+      function() {
+        // Reload page for updated list
+        // location.reload();
+      }
+    );
   });
 
 
