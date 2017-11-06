@@ -13,11 +13,11 @@
     <div class="col-xs-12">
       <div class="dropdown">
             <div class="form-group">
-        <label for="exampleSelect1">Choose Your Event</label>
-        <select class="form-control" id="exampleSelect1">
+        <label for="event-dropdown">Choose Your Event</label>
+        <select class="form-control" id="event-dropdown">
            <option>Choose Your Event </option>
            {{#each eventObj}}
-            <option value={{id}}>{{type}}</option>
+            <option value={{id}} id="{{type}}">{{type}}</option>
            {{/each}}
         </select>
       </div>

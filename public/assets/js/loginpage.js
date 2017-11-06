@@ -35,9 +35,23 @@ $( document ).ready(function() {
     });
   };
 
-    $("body").on('change',"#exampleSelect1",function(event) {
+    $("body").on('change',"#event-dropdown",function(event) {
       var value = $(this).val();
+      var eventName = $(this).find('option:selected').attr('id');
       console.log(value);
-      // add get request. on routes grab val and params
+      console.log(eventName);
+
+      var str = eventName;
+      str = str.replace(/\s+/g, '-').toLowerCase();
+      console.log(str);
+
+      console.log(window.location.href);
+      var windowUrl = window.location.href;
+      var url = windowUrl + "/" + value + "/" + str;
+
+      window.location.href = url;
+
+     // $.get("")
+      
     });
 });
