@@ -21,7 +21,7 @@ module.exports = function(app) {
       // res.send("got results");
       // res.json(events);
       // res.redirect("/user/:id/events");
-      res.render("events", events)
+      res.render("events", { eventObj: events})
     });
   });
 
