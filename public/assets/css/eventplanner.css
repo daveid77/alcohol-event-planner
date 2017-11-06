@@ -5,12 +5,48 @@ body {
   background-size: cover;*/
 }
 h3{
- font-family: 'Oswald', sans-serif; 
+ font-family: 'Oswald', sans-serif;
+ font-size: 30px; 
+ color: white;
+}
+.panel-title{
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+label {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 #navbar {
   margin: 15px 0;
   float: right;
   clear: none;
+}
+.login-wrapper {
+  margin-top: 300px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+#login-button{
+  font-family: 'Oswald', sans-serif;
+  background-color: #042037;
+  color: white;
+  font-size: 19px;
+}
+#new-account{
+  font-family: 'Oswald', sans-serif;
+  background-color: #042037;
+  color: white;
+  font-size: 19px;
+}
+.sign-up-wrapper{
+  margin-top: 300px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
 }
 .navbar-header p {
   font-family: 'Oswald', sans-serif;
