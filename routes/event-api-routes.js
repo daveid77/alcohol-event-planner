@@ -17,13 +17,13 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbEvent) {
-      res.send(dbEvent);
+      res.json(dbEvent);
     });
   });
 
   app.post('/api/event', function(req, res) {
     db.Event.create(req.body).then(function(dbEvent) {
-      res.send(dbEvent);
+      res.json(dbEvent);
     });
   });
 
