@@ -29,7 +29,7 @@ $( document ).ready(function() {
   });
 
   function getEvents() {
-    $.get("/user/:id/events", function(data){
+    $.get("/user/:id/events", function(data) {
 
     console.log(data);
     });
@@ -47,7 +47,9 @@ $( document ).ready(function() {
 
       window.location.href = url;
 
-     // $.get("")
+     $.get("/user/:id/events/:id/alcohol",function(data){
+      console.log("get route hit");
+     })
       
     });
 });

@@ -27,5 +27,4 @@ module.exports = function(sequelize, DataTypes) {
   return Alcohol;
 };
 
-// NEED to do Events next for hasmany
 
