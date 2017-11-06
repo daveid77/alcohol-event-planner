@@ -12,12 +12,19 @@ module.exports = function(sequelize, DataTypes) {
 
 
    Alcohol.associate = function(models) {
+    
     Alcohol.belongsToMany(models.Occasion, {
       through : {
         model: models.OccasionAlcohol
       } 
      });
+    Alcohol.belongsToMany(models.Event, {
+      through: {
+        model: models.EventAlcohol
+      }
+    });
   };
   return Alcohol;
 };
+
 

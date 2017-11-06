@@ -3,15 +3,10 @@ var bodyParser = require("body-parser");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
 
-// Load modules.
-// var OAuthStrategy = require('passport-google-oauth1');
-// var OAuth2Strategy = require('passport-google-oauth20')
+var authRoutes = require("./routes/auth-routes");
+var passportSetup = require("./config/passport-setup");
+var keys = require("./config/keys");
 
-// Exports.
-// exports.OAuthStrategy = OAuthStrategy;
-// exports.OAuth2Strategy = OAuth2Strategy;
-
-// ================
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -21,8 +16,14 @@ var db = require("./models");
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+<<<<<<< HEAD
 // app.use(bodyParser.text());
 // app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+=======
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use('/auth',authRoutes);
+>>>>>>> master
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");

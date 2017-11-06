@@ -5,9 +5,14 @@ module.exports = function(app) {
 // ROUTES NEEDED: 
 // from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
 
-  app.get('/api/alcohol', function(req, res) {
-    db.Alcohol.findAll().then(function(dbAlcohol) {
-      res.send(dbAlcohol);
+  app.get('/user/:id/events/:id/occasion', function(req, res) {
+    
+    console.log(req.params);
+
+    db.Alcohol.findAll({
+
+    }).then(function(dbAlcohol) {
+      res.render("event_alcohol_landing");
     });
   });
 
