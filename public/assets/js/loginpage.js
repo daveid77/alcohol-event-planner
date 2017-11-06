@@ -43,7 +43,7 @@ $( document ).ready(function() {
 
       console.log(window.location.href);
       var windowUrl = window.location.href;
-      var url = windowUrl + "/" + value + "/alcohol";
+      var url = windowUrl + "/" + value + "/occasion";
 
       window.location.href = url;
 
