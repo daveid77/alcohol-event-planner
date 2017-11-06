@@ -39,7 +39,6 @@ $(function() {
 
     // newOccasion = JSON.stringify(newOccasion);
 
-      console.log('newOccasion: ', newOccasion);
     
     // Gets UserId from URL
     var url = window.location.href;
@@ -47,7 +46,21 @@ $(function() {
     var userId = urlSplit[4];
     var postURL = '/api/user/' + userId + '/occasion/';
 
-    $.post(postURL, newOccasion).then(function(returnData){
+    newOccasion = JSON.stringify([
+      {"UserId": "6", "eventId": "4", "alcoholId": "17"},
+      {"UserId": "6", "eventId": "4", "alcoholId": "32"},
+      {"UserId": "6", "eventId": "4", "alcoholId": "43"},
+      {"UserId": "6", "eventId": "4", "alcoholId": "69"}
+    ])
+    console.log('newOccasion: ', JSON.stringify(newOccasion));
+
+
+    $.ajax({
+      method: "post",
+      data: newOccasion,
+      url: postURL,
+      contentType: 'application/json'
+    }).done(function(returnData){
         console.log('returnData: ', returnData);
         console.log('JSON.stringify(returnData): ', JSON.stringify(returnData));
       // newURL = '/api/user/' + userId + '/occasion/' + returnData.id;

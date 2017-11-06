@@ -26,9 +26,10 @@ module.exports = function(app) {
   // });
           
   app.post('/api/user/:id/occasion', function(req, res) {
-    
+      
       console.log('req.body: ', req.body);
       console.log('req.params.id: ', req.params.id);
+      // console.log('req obj is', req)
 
     fauxData = [
       {UserId: req.params.id, eventId: 4, alcoholId: 17},
