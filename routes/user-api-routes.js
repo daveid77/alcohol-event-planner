@@ -26,8 +26,14 @@ module.exports = function(app) {
   });
 
   app.post('/api/user', function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
-      res.send(dbPost);
+    
+    console.log(req.body);
+    db.User.create({
+      "username": req.body.username,
+      "password": req.body.password
+    })
+    .then(function(dbPost) {
+      res.json(dbPost.dataValues.id);
     });
   });
 

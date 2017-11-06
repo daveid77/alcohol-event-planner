@@ -1,0 +1,67 @@
+ <div class= "container">
+    <h1>AEP</h1>
+    <div class = "col-md-6">
+      <div class="panel panel-default login-wrapper">
+          <div class="panel-heading">
+            <h3 class="panel-title">Login</h3>
+          </div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <label for="name-input" id="name-label">Username:</label>
+               <input class="form-control" id="username" type="text">
+              </div>
+              <div class="form-group">
+                <label for="password" id="password">Password: </label>
+                <input class="form-control" id="password" type="password">
+              </div>
+              <button class="btn btn-default login" id="login-button" type="submit">Login</button>
+            </form>
+          </div>
+      </div>
+    </div>  
+    <div class = "col-md-6">
+      <div class="panel panel-default sign-up-wrapper">
+          <div class="panel-heading">
+            <h3 class="panel-title">New User?</h3>
+          </div>
+          <div class="panel-body">
+          
+            <button type="button" id="new-account" class="btn btn-default" href="#myModal" data-toggle="modal">Sign Up</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bs-example">
+    
+    <!-- Modal Componet -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <form>
+                    <h4 class="modal-title">Please enter Username and Password to create your account.</h4>
+                </div>
+                <div class="modal-body">
+                      <div class="form-group">
+                        <label for="username-modal"></label>
+                        <input type="text" class="form-control" id="username-modal" placeholder="Username">
+                      </div>
+                      <div class="form-group">
+                        <label for="password-modal"></label>
+                        <input type="password" class="form-control" id="password-modal" placeholder="Password">
+                      </div>
+                </div>
+                <div class="modal-footer">
+                    <h4> Are you 21 or older? </h4>                    
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    <button type="click" id="modal-submit" class="btn btn-primary">Yes</button>
+                    <!-- <button type="button" class="btn btn-default">Submit</button> -->
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>  
