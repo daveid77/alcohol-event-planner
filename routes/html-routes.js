@@ -8,8 +8,12 @@ module.exports = function(app) {
 
 
 // home screen render login page
+
+// app.get("/",function(req,res){
+//     res.render("/views/test")
+//    });
   app.get('/', function(req, res) {
-    res.render("login_page")
+    res.render("test")
   });
 // event page route
   app.get("/user/:id/events", function(req, res) {

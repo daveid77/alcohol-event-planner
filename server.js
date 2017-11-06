@@ -4,14 +4,14 @@ var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
 
 // Load modules.
-// var OAuthStrategy = require('passport-google-oauth1');
-// var OAuth2Strategy = require('passport-google-oauth20')
+var OAuthStrategy = require('passport-google-oauth1');
+var OAuth2Strategy = require('passport-google-oauth20')
+
 
 // Exports.
-// exports.OAuthStrategy = OAuthStrategy;
-// exports.OAuth2Strategy = OAuth2Strategy;
+exports.OAuthStrategy = OAuthStrategy;
+exports.OAuth2Strategy = OAuth2Strategy;
 
-// ================
 var app = express();
 var PORT = process.env.PORT || 3000;
 
