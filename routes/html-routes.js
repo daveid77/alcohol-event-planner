@@ -9,7 +9,7 @@ module.exports = function(app) {
 
 // home screen render login page
   app.get('/', function(req, res) {
-    res.render("login_page")
+    res.render("landingpage")
   });
 // event page route
   app.get("/user/:id/events", function(req, res) {

@@ -26,9 +26,15 @@ module.exports = function(app) {
   });
 
   app.post('/api/user', function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
-      res.send(dbPost);
-    });
+    
+    console.log(req.body);
+    // db.Post.create({
+      
+    // })
+    // console.log(req.body);
+    // .then(function(dbPost) {
+    //   res.send(dbPost);
+    // });
   });
 
   app.put('/api/user/:id/edit', function(req, res) {
