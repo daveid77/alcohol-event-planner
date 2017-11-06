@@ -1,11 +1,6 @@
 $( document ).ready(function() {
     
-  // $("#modal-submit").on("submit", function(event){
-
-  //   event.preventDefault();
-
-  //   console.log("submit button clicked")
-  // });
+    var url="";
 
   $("body").on('click',"#modal-submit",function(event){
        event.preventDefault();
@@ -23,7 +18,7 @@ $( document ).ready(function() {
        }
 
        $.post('/api/user',newUser).then(function(data){
-        var url = "user/" + data + "/events";
+        url = "user/" + data + "/events";
         window.location.href = url;
        })
 
@@ -37,8 +32,12 @@ $( document ).ready(function() {
     $.get("/user/:id/events", function(data){
 
     console.log(data);
-
     });
-  }
+  };
 
+    $("body").on('change',"#exampleSelect1",function(event) {
+      var value = $(this).val();
+      console.log(value);
+      // add get request. on routes grab val and params
+    });
 });
