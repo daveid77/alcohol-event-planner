@@ -23,10 +23,22 @@ $( document ).ready(function() {
        }
 
        $.post('/api/user',newUser).then(function(data){
-        window.location.href = "user/" + data;
+        var url = "user/" + data + "/events";
+        window.location.href = url;
        })
 
        console.log('Clicked');
+
+      getEvents();
+
   });
+
+  function getEvents() {
+    $.get("/user/:id/events", function(data){
+
+    console.log(data);
+
+    });
+  }
 
 });

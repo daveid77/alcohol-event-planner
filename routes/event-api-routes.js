@@ -5,9 +5,23 @@ module.exports = function(app) {
 // ROUTES NEEDED: 
 // from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
 
-  app.get('/api/event', function(req, res) {
-    db.Event.findAll().then(function(dbEvent) {
-      res.send(dbEvent);
+  app.get('/user/:id/events', function(req, res) {
+    db.Event.findAll({}).then(function(dbEvent) {
+      // console.log(dbEvent);
+      var events = [];
+
+      for(var i = 0; i < dbEvent.length; i++){
+        var obj = {
+          "id": dbEvent[i].dataValues.id,
+          "type":dbEvent[i].dataValues.type
+        }
+        events.push(obj);
+      };
+      console.log(events);
+      // res.send("got results");
+      // res.json(events);
+      // res.redirect("/user/:id/events");
+      res.render("events", { eventObj: events})
     });
   });
 

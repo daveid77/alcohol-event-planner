@@ -12,9 +12,9 @@ module.exports = function(app) {
     res.render("landingpage")
   });
 // event page route
-  app.get("/user/:id/events", function(req, res) {
-    res.render("events")
-  });
+  // app.get("/user/:id/events", function(req, res) {
+  //   res.render("events", events);
+  // });
 
   // occasion page route
   app.get("/user/:id/events/:eventid/alcohol", function(req, res) {
