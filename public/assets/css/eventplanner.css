@@ -1,8 +1,8 @@
 body {
-  background-color: #496D89
-  /*background-image: url(../img/e3social.jpg);
+ /* background-color: #496D89*/
+  background-image: url(../img/bg-014.jpg);
   background-repeat: no-repeat;
-  background-size: cover;*/
+  background-size: 150%;
 }
 h1{
  font-family: 'Oswald', sans-serif;
@@ -38,6 +38,7 @@ label {
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   color: #042037;
+  width: 110%;
 }
 .login-wrapper {
   margin-top: 150px;
@@ -62,6 +63,7 @@ label {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   font-size: 30px;
+  border: 5px solid black;
 }
 
 .login-info-wrapper {

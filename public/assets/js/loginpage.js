@@ -12,12 +12,22 @@ $( document ).ready(function() {
        console.log(username);
        console.log(password);
 
-       var newUser = {
+       if (username === "") {
+        alert("Please fill out your username");   
+      } else if (password === "") {
+        alert("Please fill out your password");
+         
+
+      } else {
+
+        var newUser = {
         "username": username,
         "password": password
-       }
 
-       $.post('/api/user',newUser).then(function(data){
+      
+
+       }
+        $.post('/api/user',newUser).then(function(data){
         url = "user/" + data + "/events";
         window.location.href = url;
        })
@@ -26,7 +36,17 @@ $( document ).ready(function() {
 
       getEvents();
 
+      }
+
   });
+
+
+
+
+       // console.log(username);
+       // console.log(password);
+      
+
 
   function getEvents() {
     $.get("/user/:id/events", function(data) {
