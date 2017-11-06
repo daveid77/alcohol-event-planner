@@ -41,13 +41,13 @@ $( document ).ready(function() {
       console.log(value);
       console.log(eventName);
 
-      var str = eventName;
-      str = str.replace(/\s+/g, '-').toLowerCase();
-      console.log(str);
+      // var str = eventName;
+      // str = str.replace(/\s+/g, '-').toLowerCase();
+      // console.log(str);
 
       console.log(window.location.href);
       var windowUrl = window.location.href;
-      var url = windowUrl + "/" + value + "/" + str;
+      var url = windowUrl + "/" + value + "/alcohol";
 
       window.location.href = url;
 
