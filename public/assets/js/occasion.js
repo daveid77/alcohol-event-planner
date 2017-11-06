@@ -8,10 +8,8 @@ $(function() {
       // console.log($(this).data('alcoholid'));
 
     if ($('.selected').length > 0) {
-      console.log('yes selected');
       $('#submit-selections').removeClass('disabled').prop('disabled', false);
     } else {
-      console.log('no selected');
       $('#submit-selections').addClass('disabled').prop('disabled', true);
     }
   });
