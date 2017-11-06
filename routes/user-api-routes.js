@@ -33,7 +33,7 @@ module.exports = function(app) {
       "password": req.body.password
     })
     .then(function(dbPost) {
-      res.send(dbPost.dataValues.id);
+      res.json(dbPost.dataValues.id);
     });
   });
 

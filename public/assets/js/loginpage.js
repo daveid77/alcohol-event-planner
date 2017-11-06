@@ -23,7 +23,7 @@ $( document ).ready(function() {
        }
 
        $.post('/api/user',newUser).then(function(data){
-        console.log(data);
+        window.location.href = "user/" + data;
        })
 
        console.log('Clicked');
