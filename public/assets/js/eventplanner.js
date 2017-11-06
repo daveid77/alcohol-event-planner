@@ -3,7 +3,7 @@ $(function() {
 
   $('.alcohol-selection-wrapper').on('click', function(event) {
     $(this).toggleClass('selected');
-    var text = $(this).attr('title') ;
+    var text = $(this).attr('title') == 'Select this' ? 'Unselect this' : 'Select this';
     $(this).attr('title', text);
   });
 
