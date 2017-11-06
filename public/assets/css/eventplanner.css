@@ -124,7 +124,7 @@ label {
   opacity: 1;
 }
 .alcohol-selection-wrapper.selected {
-  border: 4px solid #FFC500;
+  border: 5px solid #FFC500;
   opacity: 1;
 }
 .alcohol-selection-thumb {
