@@ -3,8 +3,7 @@ var db = require('../models');
 module.exports = function(app) {
 
 
-app.post('/login', passport.authenticate('local', { successRedirect: '/',
-                                                    failureRedirect: '/login' }));
+app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 
  function doGet() {
    var app = UiApp.createApplication();
