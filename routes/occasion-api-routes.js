@@ -31,15 +31,25 @@ module.exports = function(app) {
     //   {UserId: req.params.id, eventId: 4, alcoholId: 43},
     //   {UserId: req.params.id, eventId: 4, alcoholId: 69}
     // ]
-          
-  app.post('/api/user/:id/occasion', function(req, res) {
+  
+  app.post('/api/user/:id/event/:eventid/occasion', function(req, res) {
       
-      console.log('req.body: ', req.body);
       console.log('req.params.id: ', req.params.id);
+      console.log('req.params.eventid: ', req.params.eventid);
+      console.log('req.body: ', req.body);
+      // console.log('req.body[0].eventId: ', req.body[0].eventId);
 
-    db.Occasion.bulkCreate(req.body)
-    .then(function(dbOccasion) {
-      res.json(dbOccasion);
+    // Write first to Occasions table
+    db.Occasion.create({
+      UserId: req.params.id,
+      eventId: req.params.eventid,
+    }).then(function(dbPost1) {
+        console.log(dbPost1);
+      // Then write first to OccasionAlcohols model
+      // db.OccasionAlcohols.bulkCreate(req.body)
+      // .then(function(dbOccasion) {
+      //   res.json(dbOccasion);
+      // });
     });
 
   });

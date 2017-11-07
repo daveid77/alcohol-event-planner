@@ -16,17 +16,21 @@ $(function() {
   });
 
 
-  $('#submit-selections').on('click', function(event) {
+  // Gets userId from current URL
+  var url = window.location.href;
+  var urlSplit = url.split('/');
+  var userId = urlSplit[4];
+    console.log('userId: ', userId)
+  var eventId = urlSplit[6];
+    console.log('eventId: ', eventId)
+  var postURL = '/api/user/' + userId + '/event/' + eventId + '/occasion/';
+  userId = parseInt(userId);
+  eventId = parseInt(eventId);
     
-    // Gets userId from current URL
-    var url = window.location.href;
-    var urlSplit = url.split('/');
-    var userId = urlSplit[4];
-    var postURL = '/api/user/' + userId + '/occasion/';
-    userId = parseInt(userId);
+  $('#submit-selections').on('click', function(event) {
 
     // Gets eventId from data attribute in view header
-    var eventId = parseInt($('#event-name').data('eventid'));
+    // var eventId = parseInt($('#event-name').data('eventid'));
 
     // Creates array of selected data attributes
     var alcoholIds = [];
@@ -39,8 +43,8 @@ $(function() {
     for (var i = 0; i < alcoholIds.length; i++) {
       newOccasion.push(
         {
-          UserId: userId,
-          eventId: eventId,
+          // UserId: userId,
+          // eventId: eventId,
           alcoholId: alcoholIds[i]
         }
       );

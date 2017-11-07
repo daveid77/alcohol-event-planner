@@ -21,7 +21,7 @@ module.exports = function(app) {
   // });
 
   // occasion page route
-  app.get("/user/:id/events/:eventid/", function(req, res) {
+  app.get("/user/:id/event/:eventid/occasion", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/event-alcohol-selection.html"));
   });
 
