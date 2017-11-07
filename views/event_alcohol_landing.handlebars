@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="page-title">
-          <h1 class="text-center"><span id="4" data-eventid="4">Football </span>Recommendations</h1>
+          <h1 class="text-center"><span id="4" data-eventid="4">{{eventName}} </span>Recommendations</h1>
           <br>
           <p class="text-center">Choose From Our Selection Of Alcohols For Your Event</p>
         </div>
@@ -25,48 +25,12 @@
               <img class="alcohol-thumb" src="/assets/img/Beer_Glass.png" class="alc-icon">
               <h3>Beers</h3>
             </div>
-
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="1">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/311787/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Budweiser</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">budweiser beer lager canada ontario labatt breweries can</span>
-              </span>
-              </p>
-            </div>
-
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="2">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/300699/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Molson Canadian</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">molson canadian beer lager canada ontario molson's molsons brewery of limited can</span>
-              </p>
-            </div>
-
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="3">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/300681/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Coors Light</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">coors light beer lager canada ontario molson's molsons brewery of limited can</p>
-            </div>
+          
+            {{#each alcohols}}
+              {{#if beerBool}}
+                {{>alcohols/beer-block beerBool=true}}
+              {{/if}}
+            {{/each}}
 
           </div>
 
@@ -76,46 +40,11 @@
               <h3>Wines</h3>
             </div>
 
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="64">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/432732/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Bodacious Smooth Red Bag in Box</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">bodacious smooth red bag in box wine canada region not specified arterra wines inc bagnbox</span>
-              </p>
-            </div>
-
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="30">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/589051/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">French Cross Dry White Bag in Box</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">french cross dry white bag in box wine canada region not specified andrew peller limited bagnbox</span>
-              </p>
-            </div>
-
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="37">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/270959/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Jackson-Triggs Pinot Grigio Bag in Box</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">jackson triggs jackson-triggs jacksontriggs pinot grigio bag in box wine white canada region not specified winery bagnbox</p>
-            </div>
+            {{#each alcohols}}
+              {{#if wineBool}}
+                {{>alcohols/wine-block wineBool=true}}
+              {{/if}}
+            {{/each}}
 
           </div>
 
@@ -125,50 +54,13 @@
               <h3>Spirits</h3>
             </div>
 
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="65">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/605956/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Baileys Original Irish Cream</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">baileys original irish cream spirits liqueurliquor ireland region not specified r a bailey co ltd bottle</span>
-              </p>
-            </div>
+            {{#each alcohols}}
+              {{#if liquirBool}}
+                {{>alcohols/liquor-block liquirBool=true}}
+              {{/if}}
+            {{/each}}
 
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="76">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/209221/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Absolut Vodka</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">absolut vodka spirits sweden region not specified the company bottle</span>
-              </p>
-            </div>
-
-            <div class="alcohol-selection-wrapper" title="Select This" data-alcoholid="81">
-              <div class="alcohol-selection-thumb pull-left">
-                <img class="alcohol-thumb" src="https://dx5vpyka4lqst.cloudfront.net/products/7880/images/thumb.png" alt="alcohol image">
-              </div>
-              <p>
-                <strong>
-                  <span class="alcohol-name">Johnnie Walker Black Label 12 Year Old Scotch Whisky</span>
-                </strong>
-              </p>
-              <p>
-                <span class="alcohol-tag">johnnie walker black label 12 year old scotch whisky spirits whiskywhiskey united kingdom scotland john sons ltd bottle
-                </span>
-              </p>
-            </div>
-
-          </div>
+           
         </div>
         <br>
         <div class="row">
