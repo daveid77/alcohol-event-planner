@@ -4,12 +4,23 @@ module.exports = function(sequelize, DataTypes) {
     name : DataTypes.TEXT,
     image : DataTypes.TEXT,
     tag : DataTypes.TEXT,
+    beerBool: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    liquirBool: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    wineBool: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
      },  {
       timestamp : false,
       createdAt: false,
       updatedAt: false,
     });
-
 
    Alcohol.associate = function(models) {
     
