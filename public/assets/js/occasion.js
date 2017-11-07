@@ -65,14 +65,12 @@ $(function() {
     }).done(function(returnData){
         console.log('returnData: ', returnData);
         console.log('JSON.stringify(returnData): ', JSON.stringify(returnData));
-        console.log('returnData.id: ' + returnData.id);
+        console.log('returnData.id: ' + returnData[0].OccasionId);
       // UNcomment newURL and window.location when next route is ready to roll 
       // /user/:id/events/:eventid/occasion/:occid
-      newURL = '/api/user/' + userId + '/occasion/' + returnData.id;
+      newURL = '/api/user/' + userId + '/event/'+ eventId + '/occasion/' + returnData[0].OccasionId;
         console.log('newURL: ', newURL);
       window.location.href = newURL;
     });
-
   });
-
 });
