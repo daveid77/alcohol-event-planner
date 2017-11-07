@@ -40,7 +40,10 @@ module.exports = function(app) {
         "type":objLength[i].type,
         "name":objLength[i].name,
         "tag":objLength[i].tag,
-        "image": objLength[i].image
+        "image": objLength[i].image,
+        "beerBool":objLength[i].beerBool,
+        "liquirBool":objLength[i].liquirBool,
+        "wineBool":objLength[i].wineBool,
       };
       arrayOfAlcohol.push(objOfAlcohol);
     };
