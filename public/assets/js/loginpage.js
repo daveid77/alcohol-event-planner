@@ -67,7 +67,7 @@ $( document ).ready(function() {
 
       window.location.href = url;
 
-     $.get("/user/:id/events/:id/alcohol",function(data){
+     $.get(url,function(data){
       console.log("get route hit");
      })
       

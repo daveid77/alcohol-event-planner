@@ -29,23 +29,27 @@ module.exports = function(app) {
       id: req.params.eventid
     },
     include:[db.Alcohol]
-   }).then(function(dbEvents) {
-    // console.log(JSON.stringify(dbEvents));
-      var objLength = dbEvents[0].Alcohol;
-      console.log(objLength);
-      var objArray = [];
-      for(var i = 0; i < objLength.length; i++){
-        var obj = {
-          "id": objLength[i].id,
-          "type": objLength[i].type,
-          "name": objLength[i].name,
-          "tag": objLength[i].tag,
-          "image": objLength[i].image
-        }
-        objArray.push(obj);
-      }
-    res.render("event_alcohol_landing");
-    });
+   }).then(function(dbAlcohols) {
+    // console.log(dbAlcohols[0].Alcohol[1]);
+    var objLength = dbAlcohols[0].Alcohol;
+    var arrayOfAlcohol = [];
+    for(var i = 0; i < objLength.length; i++) {
+      
+      var objOfAlcohol = {
+        "id":objLength[i].id,
+        "type":objLength[i].type,
+        "name":objLength[i].name,
+        "tag":objLength[i].tag,
+        "image": objLength[i].image,
+        "beerBool":objLength[i].beerBool,
+        "liquirBool":objLength[i].liquirBool,
+        "wineBool":objLength[i].wineBool,
+      };
+      arrayOfAlcohol.push(objOfAlcohol);
+    };
+    console.log(arrayOfAlcohol);
+    res.render("event_alcohol_landing", {alcohols: arrayOfAlcohol });
+   });
   });
 
 // alcohol page route
