@@ -15,11 +15,11 @@ module.exports = function(app) {
 // ROUTES NEEDED: 
 // from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
 
-  app.get('/api/user/:id/occasion', function(req, res) {
-    db.Occasion.findAll().then(function(dbOccasion) {
-      res.send(dbOccasion);
-    });
-  });
+  // app.get('/api/user/:id/occasion', function(req, res) {
+  //   db.Occasion.findAll().then(function(dbOccasion) {
+  //     res.send(dbOccasion);
+  //   });
+  // });
 
   // app.get('/api/user/new', function(req, res) {
   //   // for handlebars
