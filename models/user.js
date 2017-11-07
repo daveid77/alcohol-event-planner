@@ -3,7 +3,10 @@ var Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     name : DataTypes.STRING,
-    googleID: DataTypes.STRING,
+    googleID: {
+      type: DataTypes.STRING
+
+    },
      },  {
       timestamp : false,
       createdAt: false,

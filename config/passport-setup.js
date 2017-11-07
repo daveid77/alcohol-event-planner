@@ -26,13 +26,14 @@ passport.use(
      clientSecret: keys.google.clientSecret 
    }, (accessToken, refreshToken, profile, done) => {
     process.nextTick(function(){
-      User.find({name: profile.id}).then(function(queryUser){
+      console.log(profile.id)
+      User.find({name: profile.displayName}).then(function(queryUser){
         if(queryUser){
           return done(null,queryUser);
         } else {
           User.create({
             name: profile.displayName,
-            googleID : profile.id.toString()
+            // googleID : profile.id
           }).then(function(newUser){
             return done(null,newUser);
           })
