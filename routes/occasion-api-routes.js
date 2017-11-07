@@ -48,13 +48,13 @@ module.exports = function(app) {
       // Then write first to OccasionAlcohols model
       db.OccasionAlcohol.bulkCreate(newEventAlcohols)
       .then(function(dbOccasion) {
-        // THIS WILL RENDER FINAL VIEW BELOW
-        // res.render("compiled_list");
+        console.log(dbOccasion);
+
+        res.json(dbOccasion);
       });
     });
 
   });
-
 
   app.put('/api/user/:id/occasion/edit', function(req, res) {
 
@@ -73,13 +73,15 @@ module.exports = function(app) {
   });
 
 
-  app.get('/api/user/:id/occasion/:occid', function(req, res) {
+  app.get('/api/user/:id/event/:eventid/occasion/:occid', function(req, res) {
+
+    console.log(req.params.occid);
     db.Occasion.findOne({
       where: {
         id: req.params.occid
       }
     }).then(function(dbOccasion) {
-      res.render(dbOccasion);
+      res.render("compiled_list");
     });
   });
   
