@@ -18,14 +18,15 @@
   },
   "homepage": "https://github.com/dbmarshall/alcohol-event-planner#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
     "mysql2": "^1.4.2",
     "passport": "^0.4.0",
-    // "passport-google-oauth": "^1.0.0",
-    // "passport-google-oauth1": "^1.0.0",
     "passport-google-oauth20": "^1.0.0",
+    "passport-local": "^1.0.0",
     "request": "^2.83.0",
     "sequelize": "^4.22.1"
   }

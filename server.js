@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var session = require("express-session");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
 
@@ -17,6 +18,11 @@ var db = require("./models");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
+
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret 
+// app.use(passport.initialize()); 
+// app.use(passport.session()); // persistent login sessions
+
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use('/auth',authRoutes);
 

@@ -54,7 +54,7 @@ module.exports = function(app) {
   app.get('/api/user/:id', function(req, res) {
     db.User.findOne({
       where: {
-        id: req.params.id
+        googleID: req.params.id
       }
     }).then(function(dbUser) {
       res.send(dbUser);
