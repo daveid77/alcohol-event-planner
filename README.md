@@ -33,17 +33,7 @@
     cd /alcohol-event-planner/
     node server.js
     ```
-
-5. Populate tables with data in MySQL: 
-
-    ```
-    cd db/
-    mysql -u root -p
-    source seeds.sql;
-    exit;
-    ```
-
-7. Populate Alcohol table with data from LCBO API: 
+5. Populate Alcohol table with data from LCBO API: 
 
     ```
     cd db/
@@ -54,7 +44,18 @@
 
     Run `node lcbo.js`
 
-6. Create new Google oAuth config file:
+
+6. Populate tables with data in MySQL: 
+
+    ```
+    cd db/
+    mysql -u root -p
+    source seeds.sql;
+    exit;
+    ```
+
+
+7. Create new Google oAuth config file:
 
     ```
     cd config/

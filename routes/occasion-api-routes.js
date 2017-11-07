@@ -32,27 +32,49 @@ module.exports = function(app) {
     //   {UserId: req.params.id, eventId: 4, alcoholId: 69}
     // ]
   
+
   app.post('/api/user/:id/event/:eventid/occasion', function(req, res) {
       
-      console.log('req.params.id: ', req.params.id);
-      console.log('req.params.eventid: ', req.params.eventid);
-      console.log('req.body: ', req.body);
+      // console.log('req.params.id: ', req.params.id);
+      // console.log('req.params.eventid: ', req.params.eventid);
+      // console.log('req.body: ', req.body);
+      // console.log('req.body[0].name: ', req.body[0].name);
+      // console.log('req.body[1].alcoholId: ', req.body[0].alcoholId);
+      // console.log('req.body[2].alcoholId: ', req.body[1].alcoholId);
+      // console.log('req.body[3].alcoholId: ', req.body[2].alcoholId);
       // console.log('req.body[0].eventId: ', req.body[0].eventId);
 
     // Write first to Occasions table
     db.Occasion.create({
       UserId: req.params.id,
-      eventId: req.params.eventid,
+      name: req.body[0].name,
     }).then(function(dbPost1) {
-        console.log(dbPost1);
+        // console.log('dbPost1.id: ', dbPost1.id);
+        // console.log('req.body: ', req.body);
+
+        // assemble new array of objects with alcoholIds for this new occasionId
+        var newEventAlcohols = [];
+        for (var i = 0; i < req.body.length; i++) {
+          newEventAlcohols.push(
+            {
+              OccasionId: dbPost1.id,
+              AlcoholId: req.body[i].alcoholId
+            }
+          );
+        }
+        // newEventAlcohols = JSON.stringify(newEventAlcohols);
+          console.log('newEventAlcohols: ', newEventAlcohols);
+
       // Then write first to OccasionAlcohols model
-      // db.OccasionAlcohols.bulkCreate(req.body)
-      // .then(function(dbOccasion) {
-      //   res.json(dbOccasion);
-      // });
+      db.OccasionAlcohol.bulkCreate(newEventAlcohols)
+      .then(function(dbOccasion) {
+        // THIS WILL RENDER FINAL VIEW BELOW
+        res.json(dbOccasion);
+      });
     });
 
   });
+
 
   app.put('/api/user/:id/occasion/edit', function(req, res) {
 
@@ -70,6 +92,7 @@ module.exports = function(app) {
 
   });
 
+
   app.get('/api/user/:id/occasion/:occid', function(req, res) {
     db.Occasion.findOne({
       where: {
@@ -80,4 +103,5 @@ module.exports = function(app) {
     });
   });
   
+
 };

@@ -20,12 +20,14 @@ $(function() {
   var url = window.location.href;
   var urlSplit = url.split('/');
   var userId = urlSplit[4];
-    console.log('userId: ', userId)
+    // console.log('userId: ', userId)
   var eventId = urlSplit[6];
-    console.log('eventId: ', eventId)
+    // console.log('eventId: ', eventId)
   var postURL = '/api/user/' + userId + '/event/' + eventId + '/occasion/';
   userId = parseInt(userId);
   eventId = parseInt(eventId);
+  var eventName = $('#event-name').text();
+    // console.log('eventName: ', eventName);
     
   $('#submit-selections').on('click', function(event) {
 
@@ -44,7 +46,7 @@ $(function() {
       newOccasion.push(
         {
           // UserId: userId,
-          // eventId: eventId,
+          name: eventName,
           alcoholId: alcoholIds[i]
         }
       );
@@ -70,6 +72,7 @@ $(function() {
     }).done(function(returnData){
         console.log('returnData: ', returnData);
         console.log('JSON.stringify(returnData): ', JSON.stringify(returnData));
+        console.log('returnData.id: ' + returnData.id);
       // UNcomment newURL and window.location when next route is ready to roll 
       // --> /user/:id/events/:eventid/occasion/:occid
       // newURL = '/api/user/' + userId + '/occasion/' + returnData.id;

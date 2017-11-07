@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "Snowboarder1$",
+  password: "Candelabra01!",
   database: "alcohol_db"
 });
 
@@ -28,17 +28,32 @@ function getLcboData() {
   var arrayOfAlcohols = [];
   
   for(var i = 0; i < data.length; i++) {
+    var beerBool = false;
+    var liquirBool = false;
+    var wineBool = false;
+
+    if (data[i].primary_category === "Beer") {
+      beerBool = true;
+    } else if (data[i].primary_category === "Spirits") {
+      liquirBool = true;
+    } else if(data[i].primary_category === "Wine") {
+      wineBool = true;
+    }
+
     arrayOfAlcohols.push(
       [
         data[i].primary_category,
         data[i].name,
         data[i].image_thumb_url,
-        data[i].tags
+        data[i].tags,
+        beerBool,
+        liquirBool,
+        wineBool
       ]
     );
   };
 
-  var query = 'INSERT INTO Alcohol (type, name, image, tag) VALUES ?';
+  var query = 'INSERT INTO Alcohol (type, name, image, tag, beerBool,liquirBool, wineBool) VALUES ?';
     connection.query(query, [arrayOfAlcohols], 
       function(err, res) {
       if (err) throw err;
