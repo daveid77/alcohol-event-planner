@@ -38,8 +38,17 @@ module.exports = function(app) {
     var eventName = dbAlcohols[0].type;
     var objLength = dbAlcohols[0].Alcohol;
     var arrayOfAlcohol = [];
+    var isLiquor = false;
+    var isWine = false;
+    var isBeer = false;
     for(var i = 0; i < objLength.length; i++) {
-      
+      if (objLength[i].beerBool){
+        isBeer = true;
+      } else if (objLength[i].wineBool) {
+        isWine = true;
+      }else if (objLength[i].liquirBool){
+        isLiquor = true;
+      }
       var objOfAlcohol = {
         "id":objLength[i].id,
         "type":objLength[i].type,
@@ -53,8 +62,10 @@ module.exports = function(app) {
       };
       arrayOfAlcohol.push(objOfAlcohol);
     };
-    console.log(arrayOfAlcohol);
     res.render("event_alcohol_landing", {
+      liquirBool: isLiquor, 
+      wineBool: isWine ,
+      beerBool: isBeer,
       eventName: arrayOfAlcohol[0].eventName,
       alcohols: arrayOfAlcohol });
    });

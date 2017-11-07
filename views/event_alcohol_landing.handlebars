@@ -2,7 +2,7 @@
     <div class="container">
           <div class="navbar-header">
             <div class="navbar-brand">
-              <p href="/">ALCOVENT</p>
+              <p href="/">this.event:choice</p>
             </div>
           </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="page-title">
-          <h1 class="text-center"><span id="4" data-eventid="4">{{eventName}} </span>Recommendations</h1>
+          <h1 class="text-center"><span id="event-name">{{eventName}} </span>Recommendations</h1>
           <br>
           <p class="text-center">Choose From Our Selection Of Alcohols For Your Event</p>
         </div>
@@ -21,51 +21,45 @@
         <div class="row">
 
           <div class="col-xs-4">
-            <div class="column-header">
-              <img class="alcohol-thumb" src="/assets/img/Beer_Glass.png" class="alc-icon">
-              <h3>Beers</h3>
-            </div>
+            {{#if beerBool}}
+              {{>alcohols/beer-column-header beerBool=true}}
+            {{/if}}
           
             {{#each alcohols}}
               {{#if beerBool}}
                 {{>alcohols/beer-block beerBool=true}}
               {{/if}}
             {{/each}}
-
           </div>
 
           <div class="col-xs-4">
-            <div class="column-header">
-              <img class="alcohol-thumb" src="/assets/img/Wine_Bottle.png" class="alc-icon">
-              <h3>Wines</h3>
-            </div>
+            {{#if wineBool}}
+             {{>alcohols/wine-column-header wineBool=true}}
+            {{/if}}
 
             {{#each alcohols}}
               {{#if wineBool}}
                 {{>alcohols/wine-block wineBool=true}}
               {{/if}}
             {{/each}}
-
           </div>
 
           <div class="col-xs-4">
-            <div class="column-header">
-              <img class="alcohol-thumb" src="/assets/img/Martini_Glass.png" class="alc-icon">
-              <h3>Spirits</h3>
-            </div>
+            {{#if liquirBool}}
+              {{>alcohols/liquor-column-header liquirBool=true}}
+            {{/if}}
 
             {{#each alcohols}}
               {{#if liquirBool}}
                 {{>alcohols/liquor-block liquirBool=true}}
               {{/if}}
             {{/each}}
-
-           
+          </div>  
         </div>
         <br>
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
-            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitlist">Create Your Alcohol List</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-selections">Create Your Alcohol List</button>
           </div>
         </div>
 
