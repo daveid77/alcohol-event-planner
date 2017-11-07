@@ -4,7 +4,8 @@
 
 // Dependencies
 // =============================================================
-var path = require("path");
+var db = require("../models");
+
 
 // Routes
 // =============================================================
@@ -21,8 +22,24 @@ module.exports = function(app) {
   // });
 
   // occasion page route
-  app.get("/user/:id/events/:eventid/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/event-alcohol-selection.html"));
+  app.get("/user/:id/events/:eventid/occasion", function(req, res) {
+   console.log(req.params.eventid);
+   db.Event.findAll({
+    where: {
+      id: req.params.eventid
+    },
+    include:[db.Alcohol]
+   }).then(function(dbEvents) {
+    console.log(dbEvents[0].Alcohol[1]);
+    var objLength = dbEvents[0].Alcohol
+    for(var i = 0; i < objLength.length; i++){
+      console.log(objLength[i].id);
+      console.log(objLength[i].type);
+      console.log(objLength[i].name);
+      console.log(objLength[i].tag);
+    }
+   })
+    res.render("event_alcohol_landing");
   });
 
 // alcohol page route
