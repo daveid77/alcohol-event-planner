@@ -21,7 +21,9 @@ module.exports = function(app) {
   //   res.render("events", events);
   // });
 
-  // occasion page route
+  // occasion page route]
+  // app.get("/user/:id/event/:eventid/occasion", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/event-alcohol-selection.html"));
   app.get("/user/:id/events/:eventid/occasion", function(req, res) {
    console.log(req.params.eventid);
    db.Event.findAll({

@@ -26,6 +26,7 @@ function getLcboData() {
   var data = objBody.result;
 
   var arrayOfAlcohols = [];
+  
   for(var i = 0; i < data.length; i++) {
     var beerBool = false;
     var liquirBool = false;
@@ -33,12 +34,12 @@ function getLcboData() {
 
     if (data[i].primary_category === "Beer") {
       beerBool = true;
-    } 
-    else if (data[i].primary_category === "Spirits") {
+    } else if (data[i].primary_category === "Spirits") {
       liquirBool = true;
     } else if(data[i].primary_category === "Wine") {
       wineBool = true;
     }
+
     arrayOfAlcohols.push(
       [
         data[i].primary_category,
