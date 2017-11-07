@@ -21,28 +21,8 @@ module.exports = function(app) {
     });
   });
 
-  // app.get('/api/user/new', function(req, res) {
-  //   // for handlebars
-  // });
-
-    // fauxData = [
-    //   {UserId: req.params.id, eventId: 4, alcoholId: 17},
-    //   {UserId: req.params.id, eventId: 4, alcoholId: 32},
-    //   {UserId: req.params.id, eventId: 4, alcoholId: 43},
-    //   {UserId: req.params.id, eventId: 4, alcoholId: 69}
-    // ]
-  
 
   app.post('/api/user/:id/event/:eventid/occasion', function(req, res) {
-      
-      // console.log('req.params.id: ', req.params.id);
-      // console.log('req.params.eventid: ', req.params.eventid);
-      // console.log('req.body: ', req.body);
-      // console.log('req.body[0].name: ', req.body[0].name);
-      // console.log('req.body[1].alcoholId: ', req.body[0].alcoholId);
-      // console.log('req.body[2].alcoholId: ', req.body[1].alcoholId);
-      // console.log('req.body[3].alcoholId: ', req.body[2].alcoholId);
-      // console.log('req.body[0].eventId: ', req.body[0].eventId);
 
     // Write first to Occasions table
     db.Occasion.create({
@@ -69,7 +49,7 @@ module.exports = function(app) {
       db.OccasionAlcohol.bulkCreate(newEventAlcohols)
       .then(function(dbOccasion) {
         // THIS WILL RENDER FINAL VIEW BELOW
-        res.json(dbOccasion);
+        // res.render("compiled_list");
       });
     });
 
@@ -96,10 +76,10 @@ module.exports = function(app) {
   app.get('/api/user/:id/occasion/:occid', function(req, res) {
     db.Occasion.findOne({
       where: {
-        id: req.params.id
+        id: req.params.occid
       }
     }).then(function(dbOccasion) {
-      res.send(dbOccasion);
+      res.render(dbOccasion);
     });
   });
   

@@ -73,3 +73,30 @@ INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (46,"7");
 INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (29,"7");
 INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (73,"7");
 INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (43,"7");
+
+-- Occasions Inserts
+INSERT INTO Occasions (name,UserId) VALUES ("Dinner Party",2);
+INSERT INTO Occasions (name,UserId) VALUES ("Company Party",2);
+INSERT INTO Occasions (name,UserId) VALUES ("Dinner Party",1);
+INSERT INTO Occasions (name,UserId) VALUES ("Housewarming Party",1);
+
+
+-- OccasionAlcohols Inserts
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (1,2);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (1,9);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (1,13);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (1,66);
+
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (2,98);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (2,67);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (2,85);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (2,76);
+
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (3,2);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (3,9);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (3,13);
+
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (4,76);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (4,80);
+INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (4,65);
+
