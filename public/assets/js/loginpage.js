@@ -24,7 +24,7 @@ $( document ).ready(function() {
         "username": username,
         "password": password
 
-      
+
 
        }
         $.post('/api/user',newUser).then(function(data){

@@ -2,11 +2,13 @@
 $(function() {
 
 
+  console.log("occasion js Loaded");
+  
   $('.alcohol-selection-wrapper').on('click', function(event) {
     $(this).toggleClass('selected');
     var text = $(this).attr('title') == 'Select this' ? 'Unselect this' : 'Select this';
     $(this).attr('title', text);
-      // console.log($(this).data('alcoholid'));
+      console.log($(this).data('alcoholid'));
 
     if ($('.selected').length > 0) {
       $('#submit-selections').removeClass('disabled').prop('disabled', false);
@@ -20,25 +22,23 @@ $(function() {
   var url = window.location.href;
   var urlSplit = url.split('/');
   var userId = urlSplit[4];
-    // console.log('userId: ', userId)
+    console.log('userId: ', userId)
   var eventId = urlSplit[6];
-    // console.log('eventId: ', eventId)
+    console.log('eventId: ', eventId)
   var postURL = '/api/user/' + userId + '/event/' + eventId + '/occasion/';
   userId = parseInt(userId);
   eventId = parseInt(eventId);
   var eventName = $('#event-name').text();
-    // console.log('eventName: ', eventName);
+    console.log('eventName: ', eventName);
     
   $('#submit-selections').on('click', function(event) {
-
-    // Gets eventId from data attribute in view header
-    // var eventId = parseInt($('#event-name').data('eventid'));
 
     // Creates array of selected data attributes
     var alcoholIds = [];
     $('.selected').each(function() {
       alcoholIds.push(parseInt($(this).data('alcoholid')));
     });
+    console.log(alcoholIds);
 
     var newOccasion = [];
 
@@ -55,13 +55,6 @@ $(function() {
     newOccasion = JSON.stringify(newOccasion);
       console.log('newOccasion: ', newOccasion);
 
-    // newOccasion = JSON.stringify([
-    //   {"UserId": "6", "eventId": "4", "alcoholId": "17"},
-    //   {"UserId": "6", "eventId": "4", "alcoholId": "32"},
-    //   {"UserId": "6", "eventId": "4", "alcoholId": "43"},
-    //   {"UserId": "6", "eventId": "4", "alcoholId": "69"}
-    // ]);
-
     // console.log('newOccasion: ', JSON.stringify(newOccasion));
 
     $.ajax({
@@ -74,10 +67,10 @@ $(function() {
         console.log('JSON.stringify(returnData): ', JSON.stringify(returnData));
         console.log('returnData.id: ' + returnData.id);
       // UNcomment newURL and window.location when next route is ready to roll 
-      // --> /user/:id/events/:eventid/occasion/:occid
-      // newURL = '/api/user/' + userId + '/occasion/' + returnData.id;
-      //   console.log('newURL: ', newURL);
-      // window.location.href = newURL;
+      // /user/:id/events/:eventid/occasion/:occid
+      newURL = '/api/user/' + userId + '/occasion/' + returnData.id;
+        console.log('newURL: ', newURL);
+      window.location.href = newURL;
     });
 
   });
