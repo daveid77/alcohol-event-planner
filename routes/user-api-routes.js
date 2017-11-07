@@ -29,8 +29,8 @@ module.exports = function(app) {
     
     console.log(req.body);
     db.User.create({
-      "username": req.body.username,
-      "password": req.body.password
+      "name": req.body.name,
+      "googleID": req.body.googleID
     })
     .then(function(dbPost) {
       res.json(dbPost.dataValues.id);
