@@ -30,22 +30,27 @@ module.exports = function(app) {
     },
     include:[db.Alcohol]
    }).then(function(dbEvents) {
-    console.log(dbEvents[0].Alcohol[1]);
-    var objLength = dbEvents[0].Alcohol
-    for(var i = 0; i < objLength.length; i++){
-      console.log(objLength[i].id);
-      console.log(objLength[i].type);
-      console.log(objLength[i].name);
-      console.log(objLength[i].tag);
-    }
-   })
+    // console.log(JSON.stringify(dbEvents));
+      var objLength = dbEvents[0].Alcohol;
+      console.log(objLength);
+      var objArray = [];
+      for(var i = 0; i < objLength.length; i++){
+        var obj = {
+          "id": objLength[i].id,
+          "type": objLength[i].type,
+          "name": objLength[i].name,
+          "tag": objLength[i].tag,
+          "image": objLength[i].image
+        }
+        objArray.push(obj);
+      }
     res.render("event_alcohol_landing");
+    });
   });
 
 // alcohol page route
   app.get("/user/:id/events/:eventid/occasion/:occid", function(req, res) {
     res.render("compiled_list")
   });
-
 };
 
