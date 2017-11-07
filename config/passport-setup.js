@@ -1,22 +1,22 @@
-var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth20');
 var keys = require("./keys");
-var User = require("../models/user.js")
-var newUser;
+var db = require("../models/index.js");
+var User = db.User;
+// var newUser;
 
 
 
-// function passport(passport){
+function passport(passport){
 
-  // passport.serializeUser(function(user,done){
-  //   done(null, user.id)
-  // })
+  passport.serializeUser(function(user,done){
+    done(null, user.id)
+  })
 
-  // passport.deserializeUser(function(id, done){
-  //   User.findById(id).then(function(user){
-  //     done(null, user)
-  //   })
-  // })
+  passport.deserializeUser(function(id, done){
+    User.findById(id).then(function(user){
+      done(null, user)
+    })
+  })
 
 passport.use(
   new GoogleStrategy({
@@ -25,19 +25,26 @@ passport.use(
      clientID: keys.google.clientID,
      clientSecret: keys.google.clientSecret 
    }, (accessToken, refreshToken, profile, done) => {
+    process.nextTick(function(){
+      User.find({name: profile.id}).then(function(queryUser){
+        if(queryUser){
+          return done(null,queryUser);
+        } else {
+          User.create({
+            name: profile.displayName,
+            googleID : profile.id.toString()
+          }).then(function(newUser){
+            return done(null,newUser);
+          })
+        }
+
+      })
+    })
 
 
-     // passport callback function
-     // console.log("passport callback has been fired!")
-     console.log(profile.name.givenName);
-     console.log(profile.id);
-   //  newUser = {
-   //    name: profile.name.givenName,
-   //    googleID : profile.id
-   //  }
-   //  console.log(newUser);
-   //  console.log("New User: ", newUser)
+     
    })
   )
 // 
-// }
+}
+module.exports = passport
