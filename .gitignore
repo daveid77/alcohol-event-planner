@@ -1,5 +1,6 @@
 config/config.json
 config/keys.js
+db/lcbo.js
 node_modules
 .DS_Store
 -*
