@@ -1,61 +1,59 @@
-  <nav class="navbar navbar-default">
-    <div class="container">
-          <div class="navbar-header">
-            <div class="navbar-brand">
-              <p>ALCOVENT</p>
-            </div>
-          </div>
-    </div>
-  </nav>
-
- <div class= "container">
-
-  <nav>
-
-    <ul>
+ <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="navbar-brand">
+        <p href ="/">ALCOVENT</p>
+      </div>
+      <ul class = "nav nav-tabs" id="google-nav">
       <li><a href="/auth/logout">Logout</a></li>
       <li><a href="/auth/login">Login</a></li>
       <li><a href="/">Home</a></li>
     </ul>
-    <div>
-      <h1>Log in using..</h1>
     </div>
-    <div id="goog">
-      <h1><a class ="google-btn" href="/auth/google">Google+ Login</a></h1>
-    </div>
- </nav>
+  </div>
+</nav>
+
+ <div class= "container">
   <div class="row">
-    <div class = "col-md-6">
-      <div class="panel panel-default login-wrapper">
-          <div class="panel-heading">
-            <h3 class="panel-title">Login</h3>
-          </div>
-          <div class="panel-body">
-            <form>
-              <div class="form-group">
-                <label for="name-input" id="name-label">Username:</label>
-               <input class="form-control" id="username" type="text">
+    <div class= "login-info-wrapper">
+      <div class = "col-md-6">
+        <div class="panel panel-default login-wrapper">
+            <div class="panel-heading">
+              <h3 class="panel-title">LOGIN</h3>
+            </div>
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <label for="name-input" id="name-label">Username:</label>
+                 <input class="form-control" id="username" type="text">
+                </div>
+                <div class="form-group">
+                  <label for="password" id="password">Password: </label>
+                  <input class="form-control" id="password" type="password">
+                </div>
+                <button class="btn btn-default login" id="login-button" type="submit">Login</button>
+              </form>
+              <div class = "google-auth-wrapper">
+                <h4>OR...</h4>
               </div>
-              <div class="form-group">
-                <label for="password" id="password">Password: </label>
-                <input class="form-control" id="password" type="password">
+              <div id="goog">
+                <a href="/auth/google"><img  id="google-btn" src="/assets/img/google.png" alt="Google+ Login"></a>
               </div>
-              <button class="btn btn-default login" id="login-button" type="submit">Login</button>
-            </form>
-          </div>
+            </div>
+        </div>
+      </div>  
+      <div class = "col-md-6">
+        <div class="panel panel-default sign-up-wrapper">
+            <div class="panel-heading">
+              <h3 class="panel-title">CREATE A NEW ACCOUNT</h3>
+            </div>
+            <div class="panel-body">
+            
+              <button type="button" id="new-account" class="btn btn-default" href="#myModal" data-toggle="modal">Sign Up</button>
+            </div>
+        </div>
       </div>
-    </div>  
-    <div class = "col-md-6">
-      <div class="panel panel-default sign-up-wrapper">
-          <div class="panel-heading">
-            <h3 class="panel-title">New User?</h3>
-          </div>
-          <div class="panel-body">
-          
-            <button type="button" id="new-account" class="btn btn-default" href="#myModal" data-toggle="modal">Sign Up</button>
-          </div>
-      </div>
-    </div>
+  </div>
   </div>
 
   <div class="bs-example">
@@ -79,6 +77,8 @@
                         <input type="password" class="form-control" id="password-modal" placeholder="Password">
                       </div>
                 </div>
+                <div id="validation">
+                </div>  
                 <div class="modal-footer">
                     <h4> Are you 21 or older? </h4>                    
                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>

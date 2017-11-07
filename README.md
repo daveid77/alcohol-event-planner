@@ -18,7 +18,6 @@
 
     Update mysql references in new `config.json` file to match your local environment.
 
-
 3. Create database in MySQL: 
 
     ```
@@ -34,23 +33,36 @@
     cd /alcohol-event-planner/
     node server.js
     ```
-
-5. Populate tables with data in MySQL: 
+5. Populate Alcohol table with data from LCBO API: 
 
     ```
-    cd /alcohol-event-planner/db/
+    cd db/
+    cp lcbo-BKUP.js lcbo.json
+    ```
+
+    Update mysql references in new `lcbo.js` file to match your local environment.
+
+    Run `node lcbo.js`
+
+
+6. Populate tables with data in MySQL: 
+
+    ```
+    cd db/
     mysql -u root -p
     source seeds.sql;
     exit;
     ```
 
-6. Populate Alcohol table with data from LCBO API: 
 
-    `cd /alcohol-event-planner/db/`
+7. Create new Google oAuth config file:
 
-    Update mysql references in `lcbo.js` file to match your local environment.
+    ```
+    cd config/
+    cp keys-BKUP.js keys.json
+    ```
 
-    Run `node lcbo.js`
+    Update mysql references in new `keys.js` file to match your local environment.
 
 ## Available Node Commands and URLs
 

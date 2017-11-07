@@ -9,71 +9,67 @@ INSERT INTO Events (type) VALUES ('Housewarming Party');
 INSERT INTO Events (type) VALUES ('Cocktail Party');
 
 -- THESE ARE TEST USERS AND CAN BE DELETED WHEN USER ROUTES SET
-INSERT INTO Users (username,password) VALUES ("Jane","1234");
-INSERT INTO Users (username,password) VALUES ("John","1234");
+INSERT INTO Users (name,googleID) VALUES ("Jane","1234");
+INSERT INTO Users (name,googleID) VALUES ("John","1234");
        
 -- Birthday Party
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Beer",1);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Beer",2);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Beer",3);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Wine",66);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Wine",67);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Wine",75);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Spirits",49);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Spirits",52);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("1","Spirits",46);
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (1,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (2,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (3,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (66,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (67,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (75,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (49,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (52,"1");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (46,"1");
 
 -- Dinner Party
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Beer",2);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Beer",9);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Beer",13);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Wine",66);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Wine",67);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Wine",80);
--- No spirits for Dinner party
--- INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Spirits");
--- INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Spirits");
--- INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("2","Spirits");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (2,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (9,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (13,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (66,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (67,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (80,"2");
 
 -- Company party
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("3","Wine",98);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("3","Wine",67);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("3","Wine",85);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("3","Spirits",52);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("3","Spirits",76);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("3","Spirits",81);
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (98,"3");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (67,"3");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (85,"3");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (52,"3");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (76,"3");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (81,"3");
 
 -- Football Party
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("4","Beer",89);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("4","Beer",97);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("4","Beer",72);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("4","Beer",70);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("4","Beer",44);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("4","Beer",25);
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (89,"4");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (97,"4");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (72,"4");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (70,"4");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (44,"4");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (25,"4");
 
 -- Holiday Party
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("5","Wine",30);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("5","Wine",86);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("5","Wine",92);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("5","Spirits",91);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("5","Spirits",73);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("5","Spirits",18);
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (30,"5");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (86,"5");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (92,"5");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (91,"5");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (73,"5");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (18,"5");
 
 -- Housewarming party
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Beer",76);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Beer",82);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Beer",32);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Wine",66);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Wine",75);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Wine",80);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Spirits",71);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Spirits",65);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("6","Spirits",43);
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (76,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (82,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (32,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (66,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (75,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (80,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (71,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (65,"6");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (43,"6");
 
 -- Cocktail party
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("7","Spirits",81);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("7","Spirits",100);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("7","Spirits",46);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("7","Spirits",29);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("7","Spirits",73);
-INSERT INTO EventFilters (eventId,type,alcoholId) VALUES ("7","Spirits",43);
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (81,"7");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (100,"7");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (46,"7");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (29,"7");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (73,"7");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (43,"7");

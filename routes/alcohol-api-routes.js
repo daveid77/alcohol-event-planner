@@ -5,17 +5,15 @@ module.exports = function(app) {
 // ROUTES NEEDED: 
 // from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
 
-  app.get('/api/alcohol', function(req, res) {
+  app.get('/user/:id/events/:id/occasion', function(req, res) {
     
-    console.log("backend route hit");
     console.log(req.params);
-    console.log(req.body);
-    // db.Alcohol.findAll({
 
+    db.Alcohol.findAll({
 
-    // }).then(function(dbAlcohol) {
-    //   res.send(dbAlcohol);
-    // });
+    }).then(function(dbAlcohol) {
+      res.render("event_alcohol_landing");
+    });
   });
 
   app.get('/api/alcohol/:id', function(req, res) {

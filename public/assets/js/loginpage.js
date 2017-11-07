@@ -12,12 +12,22 @@ $( document ).ready(function() {
        console.log(username);
        console.log(password);
 
-       var newUser = {
+       if (username === "") {
+        alert("Please fill out your username");   
+      } else if (password === "") {
+        alert("Please fill out your password");
+         
+
+      } else {
+
+        var newUser = {
         "username": username,
         "password": password
-       }
 
-       $.post('/api/user',newUser).then(function(data){
+      
+
+       }
+        $.post('/api/user',newUser).then(function(data){
         url = "user/" + data + "/events";
         window.location.href = url;
        })
@@ -26,10 +36,20 @@ $( document ).ready(function() {
 
       getEvents();
 
+      }
+
   });
 
+
+
+
+       // console.log(username);
+       // console.log(password);
+      
+
+
   function getEvents() {
-    $.get("/user/:id/events", function(data){
+    $.get("/user/:id/events", function(data) {
 
     console.log(data);
     });
@@ -41,17 +61,15 @@ $( document ).ready(function() {
       console.log(value);
       console.log(eventName);
 
-      // var str = eventName;
-      // str = str.replace(/\s+/g, '-').toLowerCase();
-      // console.log(str);
-
       console.log(window.location.href);
       var windowUrl = window.location.href;
-      var url = windowUrl + "/" + value + "/alcohol";
+      var url = windowUrl + "/" + value + "/occasion";
 
       window.location.href = url;
 
-     // $.get("")
+     $.get("/user/:id/events/:id/alcohol",function(data){
+      console.log("get route hit");
+     })
       
     });
 });
