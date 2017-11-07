@@ -29,17 +29,24 @@ module.exports = function(app) {
       id: req.params.eventid
     },
     include:[db.Alcohol]
-   }).then(function(dbEvents) {
-    console.log(dbEvents[0].Alcohol[1]);
-    var objLength = dbEvents[0].Alcohol
-    for(var i = 0; i < objLength.length; i++){
-      console.log(objLength[i].id);
-      console.log(objLength[i].type);
-      console.log(objLength[i].name);
-      console.log(objLength[i].tag);
-    }
-   })
-    res.render("event_alcohol_landing");
+   }).then(function(dbAlcohols) {
+    // console.log(dbAlcohols[0].Alcohol[1]);
+    var objLength = dbAlcohols[0].Alcohol;
+    var arrayOfAlcohol = [];
+    for(var i = 0; i < objLength.length; i++) {
+      
+      var objOfAlcohol = {
+        "id":objLength[i].id,
+        "type":objLength[i].type,
+        "name":objLength[i].name,
+        "tag":objLength[i].tag,
+        "image": objLength[i].image
+      };
+      arrayOfAlcohol.push(objOfAlcohol);
+    };
+    console.log(arrayOfAlcohol);
+    res.render("event_alcohol_landing", {alcohols: arrayOfAlcohol });
+   });
   });
 
 // alcohol page route
