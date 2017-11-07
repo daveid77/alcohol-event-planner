@@ -31,6 +31,9 @@ module.exports = function(app) {
     include:[db.Alcohol]
    }).then(function(dbAlcohols) {
     // console.log(dbAlcohols[0].Alcohol[1]);
+    // console.log(dbAlcohols);
+    console.log(dbAlcohols[0].type);
+    var eventName = dbAlcohols[0].type;
     var objLength = dbAlcohols[0].Alcohol;
     var arrayOfAlcohol = [];
     for(var i = 0; i < objLength.length; i++) {
@@ -44,11 +47,14 @@ module.exports = function(app) {
         "beerBool":objLength[i].beerBool,
         "liquirBool":objLength[i].liquirBool,
         "wineBool":objLength[i].wineBool,
+        "eventName": eventName
       };
       arrayOfAlcohol.push(objOfAlcohol);
     };
     console.log(arrayOfAlcohol);
-    res.render("event_alcohol_landing", {alcohols: arrayOfAlcohol });
+    res.render("event_alcohol_landing", {
+      eventName: arrayOfAlcohol[0].eventName,
+      alcohols: arrayOfAlcohol });
    });
   });
 

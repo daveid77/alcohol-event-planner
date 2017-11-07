@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="page-title">
-          <h1 class="text-center"><span id="4" data-eventid="4">Football </span>Recommendations</h1>
+          <h1 class="text-center"><span id="4" data-eventid="4">{{eventName}} </span>Recommendations</h1>
           <br>
           <p class="text-center">Choose From Our Selection Of Alcohols For Your Event</p>
         </div>
@@ -26,8 +26,8 @@
               <h3>Beers</h3>
             </div>
           
-            {{#each type}}
-              {{#if Beer}}
+            {{#each alcohols}}
+              {{#if beerBool}}
                 {{>alcohols/beer-block beerBool=true}}
               {{/if}}
             {{/each}}
@@ -40,8 +40,8 @@
               <h3>Wines</h3>
             </div>
 
-            {{#each type}}
-              {{#if Wine}}
+            {{#each alcohols}}
+              {{#if wineBool}}
                 {{>alcohols/wine-block wineBool=true}}
               {{/if}}
             {{/each}}
@@ -54,9 +54,9 @@
               <h3>Spirits</h3>
             </div>
 
-            {{#each type}}
-              {{#if Spirits}}
-                {{>alcohol/liquor-block liquirBool=true}}
+            {{#each alcohols}}
+              {{#if liquirBool}}
+                {{>alcohols/liquor-block liquirBool=true}}
               {{/if}}
             {{/each}}
 
