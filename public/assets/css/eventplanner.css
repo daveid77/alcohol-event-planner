@@ -74,6 +74,16 @@ label {
   font-family: 'Oswald', sans-serif;
   font-size: 38px;
   color: #042037;
+
+}
+
+
+.nav-tabs>li>a {
+    margin-top: 8px;
+}
+
+.navbar-header {
+  width: 100%;
 }
 .dropdown-toggle{
   width: 100%;
@@ -114,6 +124,17 @@ label {
   font-weight: bold;
   color: #042037;
   font-size: 20px;
+}
+
+#google-btn {
+  width:150px;
+  height:30px;
+}
+
+#google-nav {
+  float: right;
+  border-bottom: white;
+
 }
 .alcohol-tag{
   font-family: 'Oswald', sans-serif;
