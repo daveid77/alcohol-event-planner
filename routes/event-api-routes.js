@@ -8,7 +8,6 @@ module.exports = function(app) {
   app.get('/user/:id/events', function(req, res) {
     
     db.Event.findAll({}).then(function(dbEvent) {
-      // console.log(dbEvent);
       
       var events = [];
 
@@ -19,18 +18,11 @@ module.exports = function(app) {
         }
         events.push(obj);
       };
-      console.log("*************")
-      console.log(events);
 
        db.Occasion.findAll().then(function(dbOccasion) {
-        console.log(dbOccasion);
         res.render("events", {eventObj: events, occasion:dbOccasion});
         });
 
-      // res.send("got results");
-      // res.json(events);
-      // res.redirect("/user/:id/events");
-      // res.render("events", { eventObj: events})
     });
   });
 
