@@ -16,7 +16,7 @@ var PORT = process.env.PORT || 3000;
 var db = require("./models");
 
 // Sets up the Express app to handle data parsing
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
