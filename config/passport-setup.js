@@ -31,24 +31,14 @@ passport.use(
       console.log(profile.id)
       User.find({name: profile.displayName}).then(function(queryUser){
         if(queryUser){
-<<<<<<< HEAD
-          console.log(queryUser);
-          url = '/auth/google/redirect/' + queryUser.User[0].id
-          return done(null,queryUser);
-=======
             console.log('queryUser: ', queryUser);
           // return done(null,queryUser);
->>>>>>> master
         } else {
           User.create({
             name: profile.displayName,
             // googleID : profile.id
           }).then(function(newUser){
-<<<<<<< HEAD
-            console.log("New User is here ", newUser);
-=======
               console.log('newUser: ', newUser);
->>>>>>> master
             return done(null,newUser);
           })
         }
