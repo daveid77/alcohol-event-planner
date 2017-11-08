@@ -1,7 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var session = require("express-session");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
+var passport = require('passport');
 
 var authRoutes = require("./routes/auth-routes");
 var passportSetup = require("./config/passport-setup");
@@ -15,10 +17,16 @@ var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+passportSetup(passport);
+app.use(passport.initialize()); 
+app.use(passport.session()); // persistent login sessions
+
 app.use('/auth',authRoutes);
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -43,6 +51,7 @@ require("./routes/occasion-api-routes.js")(app);
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
+    console.log("Database looks fine!")
   });
 });
 

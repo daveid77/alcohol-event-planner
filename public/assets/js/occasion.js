@@ -39,6 +39,7 @@ $(function() {
       alcoholIds.push(parseInt($(this).data('alcoholid')));
     });
     console.log(alcoholIds);
+    console.log(eventName);
 
     var newOccasion = [];
 
