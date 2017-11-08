@@ -16,8 +16,8 @@ $( document ).ready(function() {
         alert("Please fill out your password");
       } else {
         var newUser = {
-        "username": username,
-        "password": password
+        "name": username,
+        "googleID": password
        }
 
         $.post('/api/user',newUser).then(function(data){

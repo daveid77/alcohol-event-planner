@@ -18,6 +18,8 @@ function passport(passport){
     })
   })
 
+var url="";
+
 passport.use(
   new GoogleStrategy({
      //options for the google strategy
