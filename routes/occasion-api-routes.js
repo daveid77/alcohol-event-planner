@@ -25,6 +25,9 @@ module.exports = function(app) {
   app.post('/api/user/:id/event/:eventid/occasion', function(req, res) {
 
     // Write first to Occasions table
+    console.log("ID" + req.params.id);
+    console.log("Name" + req.body[0].name);
+
     db.Occasion.create({
       UserId: req.params.id,
       name: req.body[0].name,
