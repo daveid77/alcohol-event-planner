@@ -27,7 +27,6 @@ module.exports = function(app) {
 
   app.post('/api/user', function(req, res) {
     
-    console.log(req.body);
     db.User.create({
       "name": req.body.name,
       "googleID": req.body.googleID
