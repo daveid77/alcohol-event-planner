@@ -6,8 +6,10 @@ module.exports = function(app) {
 // from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
 
   app.get('/user/:id/events', function(req, res) {
+    
     db.Event.findAll({}).then(function(dbEvent) {
       // console.log(dbEvent);
+      
       var events = [];
 
       for(var i = 0; i < dbEvent.length; i++){
@@ -17,11 +19,18 @@ module.exports = function(app) {
         }
         events.push(obj);
       };
+      console.log("*************")
       console.log(events);
+
+       db.Occasion.findAll().then(function(dbOccasion) {
+        console.log(dbOccasion);
+        res.render("events", {eventObj: events, occasion:dbOccasion});
+        });
+
       // res.send("got results");
       // res.json(events);
       // res.redirect("/user/:id/events");
-      res.render("events", { eventObj: events})
+      // res.render("events", { eventObj: events})
     });
   });
 

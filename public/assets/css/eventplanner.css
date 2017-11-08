@@ -2,7 +2,7 @@ body {
  /* background-color: #496D89*/
   background-image: url(../img/bg-014.jpg);
   background-repeat: no-repeat;
-  background-size: 150%;
+  background-size: cover;
 }
 h1{
  font-family: 'Oswald', sans-serif;
@@ -21,10 +21,15 @@ h3{
   font-size: 25px;
 }
 
+.user-panel {
+  margin-top: 200px
+}
+
 label {
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
+  color: white;
 }
 #navbar a {
   font-family: 'Oswald', sans-serif;
@@ -173,6 +178,10 @@ footer {
   text-align: center;
 }
 
+.user-panel {
+ border: 5px solid #000;
+ opacity: 1
+}
 
 /* Modal.html code */
 

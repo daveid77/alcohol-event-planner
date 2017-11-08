@@ -1,0 +1,13 @@
+<div class="user-panel panel panel-default">
+   <div class="panel-heading">
+        <h6 class="panel-title">USER HISTORY</h6>
+    </div>
+  <div class="panel-body">
+      {{#each occasion}} 
+      <div><a href="/user/{{UserId}}/event/{{??}}/occasion/{{id}}">{{name}}</a></div>
+      {{/each}}
+      {{#each event}} 
+      <div>{{id}}</div>
+      {{/each}}
+  </div>
+</div>
