@@ -9,6 +9,7 @@ module.exports = function(app) {
     
     db.Event.findAll({}).then(function(dbEvent) {
       // console.log(dbEvent);
+      
       var events = [];
 
       for(var i = 0; i < dbEvent.length; i++){
@@ -18,10 +19,12 @@ module.exports = function(app) {
         }
         events.push(obj);
       };
+      console.log("*************")
       console.log(events);
 
        db.Occasion.findAll().then(function(dbOccasion) {
-        res.render("events", { eventObj: events, occasion: dbOccasion})
+        console.log(dbOccasion);
+        res.render("events", {eventObj: events, occasion:dbOccasion});
         });
 
       // res.send("got results");

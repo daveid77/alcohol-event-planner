@@ -2,6 +2,7 @@ $( document ).ready(function() {
     
     var url="";
 
+
   $("body").on('click',"#modal-submit",function(event){
        event.preventDefault();
 
@@ -39,6 +40,13 @@ $( document ).ready(function() {
       }
 
   });
+
+$("body").on('click',"#modal-no",function(event){
+       event.preventDefault();
+       alert("You have to be at least 21 to use this app!")
+
+
+  }); 
 
 
 
