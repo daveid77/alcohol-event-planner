@@ -10,30 +10,20 @@ $( document ).ready(function() {
 
        var password = $("#password-modal").val().trim();
 
-       console.log(username);
-       console.log(password);
-
        if (username === "") {
         alert("Please fill out your username");   
       } else if (password === "") {
         alert("Please fill out your password");
-         
-
       } else {
-
         var newUser = {
         "username": username,
         "password": password
-
-
-
        }
+
         $.post('/api/user',newUser).then(function(data){
         url = "user/" + data + "/events";
         window.location.href = url;
        })
-
-       console.log('Clicked');
 
       getEvents();
 
@@ -41,43 +31,27 @@ $( document ).ready(function() {
 
   });
 
-$("body").on('click',"#modal-no",function(event){
+
+  $("body").on('click',"#modal-no",function(event){
        event.preventDefault();
        alert("You have to be at least 21 to use this app!")
-
-
   }); 
-
-
-
-
-       // console.log(username);
-       // console.log(password);
       
-
-
   function getEvents() {
-    $.get("/user/:id/events", function(data) {
-
-    console.log(data);
-    });
+    $.get("/user/:id/events", function(data) {});
   };
 
-    $("body").on('change',"#event-dropdown",function(event) {
-      var value = $(this).val();
-      var eventName = $(this).find('option:selected').attr('id');
-      console.log(value);
-      console.log(eventName);
+  $("body").on('change',"#event-dropdown",function(event) {
+    var value = $(this).val();
+    var eventName = $(this).find('option:selected').attr('id');
+    var windowUrl = window.location.href;
+    var url = windowUrl + "/" + value + "/occasion";
 
-      console.log(window.location.href);
-      var windowUrl = window.location.href;
-      var url = windowUrl + "/" + value + "/occasion";
+    window.location.href = url;
 
-      window.location.href = url;
+   $.get(url,function(data){
+   })
+    
+  });
 
-     $.get(url,function(data){
-      console.log("get route hit");
-     })
-      
-    });
 });
