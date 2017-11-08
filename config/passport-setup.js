@@ -18,10 +18,12 @@ function passport(passport){
     })
   })
 
+var url="";
+
 passport.use(
   new GoogleStrategy({
      //options for the google strategy
-     callbackURL : '/auth/google/redirect',
+     callbackURL : url,
      clientID: keys.google.clientID,
      clientSecret: keys.google.clientSecret 
    }, (accessToken, refreshToken, profile, done) => {
@@ -29,12 +31,15 @@ passport.use(
       console.log(profile.id)
       User.find({name: profile.displayName}).then(function(queryUser){
         if(queryUser){
+          console.log(queryUser);
+          url = '/auth/google/redirect/' + queryUser.User[0].id
           return done(null,queryUser);
         } else {
           User.create({
             name: profile.displayName,
             // googleID : profile.id
           }).then(function(newUser){
+            console.log("New User is here ", newUser);
             return done(null,newUser);
           })
         }

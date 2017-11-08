@@ -9,7 +9,7 @@ router.get("/google", passport.authenticate('google',{
 }));
 
 // callback route for google to redirect to
-router.get('/google/redirect', passport.authenticate('google',{
+router.get('/google/redirect/:id', passport.authenticate('google',{
   successRedirect : '/events',
   failureRedirect : '/google'
 }));
