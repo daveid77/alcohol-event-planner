@@ -23,7 +23,7 @@ var url="";
 passport.use(
   new GoogleStrategy({
      //options for the google strategy
-     callbackURL : url,
+     callbackURL : '/auth/google/redirect',
      clientID: keys.google.clientID,
      clientSecret: keys.google.clientSecret 
    }, (accessToken, refreshToken, profile, done) => {
