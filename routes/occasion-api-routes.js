@@ -76,14 +76,63 @@ module.exports = function(app) {
   app.get('/api/user/:id/event/:eventid/occasion/:occid', function(req, res) {
 
     console.log(req.params.occid);
-    db.Occasion.findOne({
+    db.OccasionAlcohol.findAll({
       where: {
-        id: req.params.occid
+        OccasionId: req.params.occid
       }
+      // include:[db.Alcohol]
     }).then(function(dbOccasion) {
-      res.render("compiled_list");
+      // create an array of IDs
+      var alcoholsArr = [];
+      for(var i = 0; i < dbOccasion.length; i++) {
+        alcoholsArr.push(dbOccasion[i].AlcoholId);
+      }
+      console.log(alcoholsArr);
+      // do a find All where the ID's match in Alcochol table
+      db.Alcohol.findAll({
+        where:{
+          id: alcoholsArr
+        },
+      }).then(function(alcoholResult){
+        // console.log(alcoholResult[0].id);
+        
+        var alcoholResult = alcoholResult;
+
+        var arrayOfAlcohol = [];
+        var isLiquor = false;
+        var isWine = false;
+        var isBeer = false;
+        for(var i = 0; i < alcoholResult.length; i++) {
+          if (alcoholResult[i].beerBool){
+            isBeer = true;
+          } else if (alcoholResult[i].wineBool) {
+            isWine = true;
+          }else if (alcoholResult[i].liquirBool){
+            isLiquor = true;
+          }
+          var objOfAlcohol = {
+            "id":alcoholResult[i].id,
+            "type":alcoholResult[i].type,
+            "name":alcoholResult[i].name,
+            "tag":alcoholResult[i].tag,
+            "image": alcoholResult[i].image,
+            "beerBool":alcoholResult[i].beerBool,
+            "liquirBool":alcoholResult[i].liquirBool,
+            "wineBool":alcoholResult[i].wineBool,
+            "eventName": req.params.eventid
+          };
+          arrayOfAlcohol.push(objOfAlcohol);
+        };
+         console.log(arrayOfAlcohol)
+        res.render("event_alcohol_landing", {
+          liquirBool: isLiquor, 
+          wineBool: isWine ,
+          beerBool: isBeer,
+          eventName: arrayOfAlcohol[0].eventName,
+          alcohols: arrayOfAlcohol 
+            });
+        });
+      });
     });
-  });
-  
 
 };
