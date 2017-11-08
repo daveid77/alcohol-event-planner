@@ -1,93 +1,84 @@
-# alcohol-event-planner
+# this.event:choice
 
-## Installation
+this.event:choice is an application that will allow users to select a chosen event and render a curated list of wines, spirits, and beers based on the event. The user can then compile a list of their selections, and save their list for later use.
 
-1. Clone repo:
+Getting Started
 
-    ```
-    git clone https://github.com/dbmarshall/alcohol-event-planner/
-    cd /alcohol-event-planner/
-    ```
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-2. Create new local config file:
+Prerequisites
 
-    ```
-    cd /alcohol-event-planner/config/
-    cp config-BKUP.json config.json
-    ```
+What things you need to install the software and how to install them
 
-    Update mysql references in new `config.json` file to match your local environment.
+Give examples
+Installing
 
-3. Create database in MySQL: 
+A step by step series of examples that tell you have to get a development env running
 
-    ```
-    cd /alcohol-event-planner/db/
-    mysql -u root -p
-    source schema.sql;
-    exit;
-    ```
+Say what the step will be
 
-4. Start server to create tables from models:
+Give the example
+And repeat
 
-    ```
-    cd /alcohol-event-planner/
-    node server.js
-    ```
-5. Populate Alcohol table with data from LCBO API: 
+until finished
+End with an example of getting some data out of the system or using it for a little demo
 
-    ```
-    cd db/
-    cp lcbo-BKUP.js lcbo.json
-    ```
+Running the tests
 
-    Update mysql references in new `lcbo.js` file to match your local environment.
+Explain how to run the automated tests for this system
 
-    Run `node lcbo.js`
+Break down into end to end tests
+
+Explain what these tests test and why
+
+Give an example
+And coding style tests
+
+Explain what these tests test and why
+
+Give an example
+Deployment
+
+Add additional notes about how to deploy this on a live system
+
+Built With
+
+Dropwizard - The web framework used
+Maven - Dependency Management
+ROME - Used to generate RSS Feeds
+Contributing
+
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+
+Versioning
+
+We use SemVer for versioning. For the versions available, see the tags on this repository.
+
+Authors
+
+Billie Thompson - Initial work - PurpleBooth
+See also the list of contributors who participated in this project.
+
+License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
+Acknowledgments
+
+Hat tip to anyone who's code was used
+Inspiration
+etc
 
 
-6. Populate tables with data in MySQL: 
-
-    ```
-    cd db/
-    mysql -u root -p
-    source seeds.sql;
-    exit;
-    ```
 
 
-7. Create new Google oAuth config file:
 
-    ```
-    cd config/
-    cp keys-BKUP.js keys.json
-    ```
 
-    Update mysql references in new `keys.js` file to match your local environment.
 
-## Available Node Commands and URLs
 
-**Local:** 
 
-* Run `node server.js` 
-* Then load [http://localhost:3000/](http://localhost:3000/)
 
-**Heroku Deployment:** 
 
-* Load [https://alcohol-event-planner.herokuapp.com/](https://alcohol-event-planner.herokuapp.com/)
 
-## Misc Notes
 
-* Github master branch pushes autodeploy to Heroku (sweet).
-
-## Authors
-
-* **Josh Siverson** ([siverson90.github.io](https://siverson90.github.io))
-* **Mike Murphy** ([github.com/Brainstorm-Chaser](https://github.com/Brainstorm-Chaser))
-* **David Morse** ([dbmarshall.github.io](https://dbmarshall.github.io))
-* **Yolisa Bam** ([yolisabam.github.io](https://yolisabam.github.io))
-* **Brandon Lee** ([github.com/blee2322](https://github.com/blee2322))
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 

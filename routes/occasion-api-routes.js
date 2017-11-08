@@ -127,7 +127,7 @@ module.exports = function(app) {
           arrayOfAlcohol.push(objOfAlcohol);
         };
          console.log(arrayOfAlcohol)
-        res.render("event_alcohol_landing", {
+        res.render("compiled_list", {
           liquirBool: isLiquor, 
           wineBool: isWine ,
           beerBool: isBeer,
