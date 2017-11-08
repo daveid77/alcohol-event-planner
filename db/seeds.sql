@@ -100,3 +100,4 @@ INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (4,76);
 INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (4,80);
 INSERT INTO OccasionAlcohols (OccasionId,AlcoholId) VALUES (4,65);
 
+
