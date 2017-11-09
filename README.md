@@ -1,4 +1,27 @@
-# alcohol-event-planner
+# this.event:choice app
+
+## User Story
+
+As a person who attending or hosting an event, I am unsure of what alcohol is appropriate to bring to or provide at a given event. I want to see a recommended selection of choices for various events.
+
+## Synopsis
+
+this.event:choice is an application that allows users to select an event type and render a curated list of wines, spirits, and beers based on the event. The user can then compile a list of their selections, and save their list for later use.
+
+## Motivation
+
+Instead of the going through the hassle of decision making when going to an event, it would be great to have an app that provides recommendations.
+
+## Technologies:
+
+* Express.js
+* Node.js
+* Sequelize.js
+* Handlebars.js
+* HTML5
+* CSS
+* Javascript
+* MySQL
 
 ## User Story
 
@@ -90,9 +113,7 @@ Instead of the going throught the hassle of decision making when going to an eve
 
 ## Visual Application Walkthrough
 
-
-
-
+![this.event:choice walk-through](https://github.com/dbmarshall/alcohol-event-planner/blob/cleanup/public/assets/img/APP-ScreenRecording.gif?raw=true "this.event:choice in Action")
 
 ## Code Examples
 
