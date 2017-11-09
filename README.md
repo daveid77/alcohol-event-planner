@@ -1,70 +1,4 @@
-# this.event:choice
-
-
-## Installation
-
-1. Clone repo:
-
-    ```
-    git clone https://github.com/dbmarshall/alcohol-event-planner/
-    cd /alcohol-event-planner/
-    ```
-
-2. Create new local config file:
-
-    ```
-    cd /alcohol-event-planner/config/
-    cp config-BKUP.json config.json
-    ```
-
-    Update mysql references in new `config.json` file to match your local environment.
-
-3. Create database in MySQL: 
-
-    ```
-    cd /alcohol-event-planner/db/
-    mysql -u root -p
-    source schema.sql;
-    exit;
-    ```
-
-4. Start server to create tables from models:
-
-    ```
-    cd /alcohol-event-planner/
-    node server.js
-    ```
-5. Populate Alcohol table with data from LCBO API: 
-
-    ```
-    cd db/
-    cp lcbo-BKUP.js lcbo.json
-    ```
-
-    Update mysql references in new `lcbo.js` file to match your local environment.
-
-    Run `node lcbo.js`
-
-
-6. Populate tables with data in MySQL: 
-
-    ```
-    cd db/
-    mysql -u root -p
-    source seeds.sql;
-    exit;
-    ```
-
-
-7. Create new Google oAuth config file:
-
-    ```
-    cd config/
-    cp keys-BKUP.js keys.json
-    ```
-
-    Update mysql references in new `keys.js` file to match your local environment.
-
+# alcohol-event-planner
 
 ## User Story
 
@@ -168,6 +102,69 @@ getLcboData();
 ```
 
 ###
+## Installation
+
+1. Clone repo:
+
+    ```
+    git clone https://github.com/dbmarshall/alcohol-event-planner/
+    cd /alcohol-event-planner/
+    ```
+
+2. Create new local config file:
+
+    ```
+    cd /alcohol-event-planner/config/
+    cp config-BKUP.json config.json
+    ```
+
+    Update mysql references in new `config.json` file to match your local environment.
+
+3. Create database in MySQL: 
+
+    ```
+    cd /alcohol-event-planner/db/
+    mysql -u root -p
+    source schema.sql;
+    exit;
+    ```
+
+4. Start server to create tables from models:
+
+    ```
+    cd /alcohol-event-planner/
+    node server.js
+    ```
+5. Populate Alcohol table with data from LCBO API: 
+
+    ```
+    cd db/
+    cp lcbo-BKUP.js lcbo.json
+    ```
+
+    Update mysql references in new `lcbo.js` file to match your local environment.
+
+    Run `node lcbo.js`
+
+
+6. Populate tables with data in MySQL: 
+
+    ```
+    cd db/
+    mysql -u root -p
+    source seeds.sql;
+    exit;
+    ```
+
+
+7. Create new Google oAuth config file:
+
+    ```
+    cd config/
+    cp keys-BKUP.js keys.json
+    ```
+
+    Update mysql references in new `keys.js` file to match your local environment.
 
 ## Available Node Commands and URLs
 
@@ -195,24 +192,4 @@ getLcboData();
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
-Add additional notes about how to deploy this on a live system
-
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

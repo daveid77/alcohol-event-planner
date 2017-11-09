@@ -18,6 +18,8 @@ function passport(passport){
     })
   })
 
+var url="";
+
 passport.use(
   new GoogleStrategy({
      //options for the google strategy
@@ -29,12 +31,14 @@ passport.use(
       console.log(profile.id)
       User.find({name: profile.displayName}).then(function(queryUser){
         if(queryUser){
-          return done(null,queryUser);
+            console.log('queryUser: ', queryUser);
+          // return done(null,queryUser);
         } else {
           User.create({
             name: profile.displayName,
             // googleID : profile.id
           }).then(function(newUser){
+              console.log('newUser: ', newUser);
             return done(null,newUser);
           })
         }

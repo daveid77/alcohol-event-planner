@@ -6,8 +6,6 @@ module.exports = function(app) {
 // from https://docs.google.com/document/d/1VqkDJ1YUvPCzGqSYs7ZnI_6vBsjxu0gfSa8A1iFCaDA/
 
   app.get('/user/:id/events/:id/occasion', function(req, res) {
-    
-    console.log(req.params);
 
     db.Alcohol.findAll({
 
