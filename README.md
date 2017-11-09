@@ -1,4 +1,27 @@
-# alcohol-event-planner
+# this.event:choice app
+
+## User Story
+
+As a person who attending or hosting an event, I am unsure of what alcohol is appropriate to bring to or provide at a given event. I want to see a recommended selection of choices for various events.
+
+## Synopsis
+
+this.event:choice is an application that allows users to select an event type and render a curated list of wines, spirits, and beers based on the event. The user can then compile a list of their selections, and save their list for later use.
+
+## Motivation
+
+Instead of the going through the hassle of decision making when going to an event, it would be great to have an app that provides recommendations.
+
+## Technologies:
+
+* Express.js
+* Node.js
+* Sequelize.js
+* Handlebars.js
+* HTML5
+* CSS
+* Javascript
+* MySQL
 
 ## Installation
 
@@ -63,6 +86,119 @@
     ```
 
     Update mysql references in new `keys.js` file to match your local environment.
+
+## Visual Application Walkthrough
+
+![this.event:choice walk-through](https://raw.githubusercontent.com/dbmarshall/alcohol-event-planner/master/public/assets/img/APP-ScreenRecording.gif "this.event:choice in Action")
+
+## Code Examples
+
+### LCBO
+
+```
+var request = require("request");
+var mysql = require("mysql2");
+
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "Candelabra01!",
+  database: "alcohol_db"
+});
+
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log("connected as id " + connection.threadId + "\n");
+});
+
+function getLcboData() {
+
+  var qUrl = "https://lcboapi.com/products?per_page=100&access_key=MDpjOTBmZTUyMC1jMWNiLTExZTctYjg4MC02YmZmM2Y5NTY3NDE6VkxhMzdqNHcweFNhRkJrb3cyYXFpZVFxYW5JaklkUWZ4TDV5";
+
+  request.get(qUrl, function(error, response,body) {
+
+  if (error) throw error;
+  
+  var objBody = JSON.parse(body);
+  var data = objBody.result;
+
+  var arrayOfAlcohols = [];
+  
+  for(var i = 0; i < data.length; i++) {
+    var beerBool = false;
+    var liquirBool = false;
+    var wineBool = false;
+
+    if (data[i].primary_category === "Beer") {
+      beerBool = true;
+    } else if (data[i].primary_category === "Spirits") {
+      liquirBool = true;
+    } else if(data[i].primary_category === "Wine") {
+      wineBool = true;
+    }
+
+    arrayOfAlcohols.push(
+      [
+        data[i].primary_category,
+        data[i].name,
+        data[i].image_thumb_url,
+        data[i].tags,
+        beerBool,
+        liquirBool,
+        wineBool
+      ]
+    );
+  };
+
+  var query = 'INSERT INTO Alcohol (type, name, image, tag, beerBool,liquirBool, wineBool) VALUES ?';
+    connection.query(query, [arrayOfAlcohols], 
+      function(err, res) {
+      if (err) throw err;
+        console.log(res.affectedRows + " products inserted!\n");
+        connection.end();
+    });
+  });
+
+}  
+
+getLcboData();
+
+```
+
+### Ocassions Route
+
+```
+app.post('/api/user/:id/event/:eventid/occasion', function(req, res) {
+
+    // Write first to Occasions table
+    db.Occasion.create({
+      UserId: req.params.id,
+      name: req.body[0].name,
+    }).then(function(dbPost1) {
+
+        // Assemble new array of objects with alcoholIds for this new occasionId
+        var newEventAlcohols = [];
+        for (var i = 0; i < req.body.length; i++) {
+          newEventAlcohols.push(
+            {
+              OccasionId: dbPost1.id,
+              AlcoholId: req.body[i].alcoholId
+            }
+          );
+        }
+
+      // Then write first to OccasionAlcohols model
+      db.OccasionAlcohol.bulkCreate(newEventAlcohols)
+      .then(function(dbOccasion) {
+
+        res.json(dbOccasion);
+
+      });
+    });
+
+  });
+```
 
 ## Available Node Commands and URLs
 
