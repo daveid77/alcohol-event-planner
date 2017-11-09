@@ -23,6 +23,30 @@ Instead of the going through the hassle of decision making when going to an even
 * Javascript
 * MySQL
 
+## User Story
+
+As a person who attends events often, sometimes I am unsure of what alcohol is appropriate to bring given an event. And sometimes I have no time for research and want something on the fly.
+
+## Synopsis
+
+this.event:choice is an application that will allow users to select a chosen event and render a curated list of wines, spirits, and beers based on the event. The user can then compile a list of their selections, and save their list for later
+
+## Motivation
+
+Instead of the going throught the hassle of decision making when going to an event, it would be great to have an app that would automatically make the decision for us
+
+## Technologies:
+
+* Express.js
+* Node.js
+* Sequelize.js- Models
+* Handlebars.js - Rendering
+* HTML5- Front-End Scripting
+* CSS- Front-End Scripting
+* Javascript- Back-End Scripting
+* mySQL- Database Management
+* mySQL2- Database Management
+
 ## Installation
 
 1. Clone repo:
