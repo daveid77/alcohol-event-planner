@@ -89,7 +89,7 @@ Instead of the going through the hassle of decision making when going to an even
 
 ## Visual Application Walkthrough
 
-![this.event:choice walk-through](https://raw.githubusercontent.com/dbmarshall/alcohol-event-planner/master/public/assets/img/APP-ScreenRecording.gif "this.event:choice in Action")
+![this.event:choice walk-through](https://github.com/dbmarshall/alcohol-event-planner/blob/cleanup/public/assets/img/APP-ScreenRecording.gif?raw=true "this.event:choice in Action")
 
 ## Code Examples
 
