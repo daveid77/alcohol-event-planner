@@ -27,11 +27,11 @@ INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (55,"1");
 INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (2,"2");
 INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (9,"2");
 INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (13,"2");
-INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (66,"2");
-INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (70,"2");
-INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (80,"2");
-INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (91,"2");
-INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (98,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (32,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (49,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (56,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (67,"2");
+INSERT INTO EventAlcohols (AlcoholId,EventId) VALUES (99,"2");
 
 
 -- Company party
