@@ -3,11 +3,11 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
-var passport = require('passport');
+// var passport = require('passport');
 
-var authRoutes = require("./routes/auth-routes");
-var passportSetup = require("./config/passport-setup");
-var keys = require("./config/keys");
+// var authRoutes = require("./routes/auth-routes");
+// var passportSetup = require("./config/passport-setup");
+// var keys = require("./config/keys");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -21,12 +21,12 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
-passportSetup(passport);
-app.use(passport.initialize()); 
-app.use(passport.session()); // persistent login sessions
+// app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+// passportSetup(passport);
+// app.use(passport.initialize()); 
+// app.use(passport.session()); // persistent login sessions
 
-app.use('/auth',authRoutes);
+// app.use('/auth',authRoutes);
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
