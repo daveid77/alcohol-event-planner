@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "alcohol_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL", 
+    "username": "twjvfkld0vzj6p2p",
+    "password": "nyzu865dj3af8lji",
+    "database": "btv77tgp76uypfde",
+    "host": "yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
