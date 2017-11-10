@@ -14,6 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
+    "use_env_variable": "DATABASE_URL",
     "username": "twjvfkld0vzj6p2p",
     "password": "nyzu865dj3af8lji",
     "database": "btv77tgp76uypfde",
