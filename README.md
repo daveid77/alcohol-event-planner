@@ -47,7 +47,7 @@ Instead of the going throught the hassle of decision making when going to an eve
 * mySQL- Database Management
 * mySQL2- Database Management
 
-## Installation
+## Local Environment Installation
 
 1. Clone repo:
 
@@ -114,6 +114,8 @@ Instead of the going throught the hassle of decision making when going to an eve
 ## Visual Application Walkthrough
 
 ![this.event:choice walk-through](https://github.com/dbmarshall/alcohol-event-planner/blob/cleanup/public/assets/img/APP-ScreenRecording.gif?raw=true "this.event:choice in Action")
+
+Note that new user sign up properly logs to database, but return login is not functional, nor is google login.   
 
 ## Code Examples
 
