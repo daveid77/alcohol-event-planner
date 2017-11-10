@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var session = require("express-session");
+// var session = require("express-session");
 var methodOverride = ("method-override");
 var exphbs = require("express-handlebars");
 // var passport = require('passport');
