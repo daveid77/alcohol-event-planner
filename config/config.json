@@ -4,7 +4,7 @@
     "password": "root",
     "database": "alcohol_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql2"
   },
   "test": {
     "username": "root",
@@ -14,11 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "DATABASE_URL",
     "username": "twjvfkld0vzj6p2p",
     "password": "nyzu865dj3af8lji",
     "database": "btv77tgp76uypfde",
     "host": "yhrz9vns005e0734.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
+    "dialect": "mysql2"
   }
 }
