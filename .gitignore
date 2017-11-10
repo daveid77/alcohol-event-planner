@@ -1,4 +1,4 @@
-config/config.json
+# config/config.json
 config/keys.js
 db/lcbo.js
 node_modules
