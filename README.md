@@ -2,7 +2,7 @@
 
 ## User Story
 
-As a person who attending or hosting an event, I am unsure of what alcohol is appropriate to bring to or provide at a given event. I want to see a recommended selection of choices for various events.
+As a person who is attending or hosting an event, I am unsure of what alcohol is appropriate to bring to or provide at a given event. I want to see a recommended selection of choices for various events.
 
 ## Synopsis
 
